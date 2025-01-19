@@ -1,0 +1,107 @@
+/* Minimal Dark Mode Styles */
+  
+
+.project {
+    background-color: #1c1c1c;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.project:hover {
+    transform: scale(1.02);
+}
+
+footer {
+    background-color: #1e1e1e;
+    color: #a8a8a8;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Buttons */
+button, .cta-button {
+    background: #ffcc80;
+    color: #121212;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover, .cta-button:hover {
+    background: #e6b566;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .project {
+        margin-bottom: 20px;
+    }
+}
+
+body {
+    background-color: #121212;
+    color: #d4d4d4;
+}
+
+header {
+    background-color: #1e1e1e;
+}
+
+.btn {
+    color: #121212;
+    background-color: #ffcc80;
+    border: none;
+}
+
+.btn:hover {
+    background-color: #e6b566;
+}
+
+.tabcontent {
+    background-color: #1c1c1c;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+footer {
+    background-color: #1e1e1e;
+    color: #a8a8a8;
+}
+
+.card {
+    background-color: #1c1c1c;
+    color: #d4d4d4;
+}
+
+.badge {
+    background-color: #2e2e2e;
+    color: #d4d4d4;
+}
+
+.badge .fas {
+    color: #ffcc80;
+}
+
+.chat-form input {
+    background-color: #2e2e2e;
+    color: #d4d4d4;
+    border: 1px solid #444;
+}
+
+.chat-form input::placeholder {
+    color: #888;
+}
