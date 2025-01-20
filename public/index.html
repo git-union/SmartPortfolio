@@ -8,17 +8,39 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="styles.css">
     <style>
-       
+        /* Custom styles for hero section */
+        #hero {
+            position: relative;
+            color: white;
+            overflow: hidden;
+            background-color: #000;
+             /* Full height for the hero section */
+        }
+        #hero-content {
+            position: absolute;
+            z-index: 2;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <header class="container-fluid py-5">
-        <div class="container">
+    <!-- Hero Section with Particle.js -->
+    <header class="container-fluid py-5" id="hero">
+        <!-- Particle.js background -->
+        <div id="particles-js"></div>
+        
+        <div class="container" id="hero-content" data-aos="fade-up" data-aos-duration="1000">
             <div class="row align-items-center">
                 <!-- Left Half: Photo and Content -->
-                <div class="col-md-6 mb-4 mb-md-0">
+                <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right" data-aos-duration="1200">
                     <div class="text-center text-md-start">
                         <img src="img/profile.png" alt="Eesita Sen" class="img-fluid rounded-circle mb-3" style="max-width: 150px;">
                         <h1>Hi, I'm <span class="text-primary">Eesita Sen</span></h1>
@@ -34,7 +56,7 @@
                 </div>
 
                 <!-- Right Half: Chatbox -->
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-left" data-aos-duration="1500">
                     <div class="card">
                         <div class="card-header bg-primary text-white">
                             <h2 class="h5 mb-0">Chat with Me!</h2>
@@ -54,14 +76,14 @@
         </div>
     </header>
 
-    <main class="container my-5">
+    <main class="container my-5" data-aos="fade-up" data-aos-duration="1300">
         <div class="d-flex justify-content-center mb-4">
             <button class="btn me-2" onclick="openTab(event, 'about')" id="defaultOpen"><i class="fas fa-info-circle"></i> About</button>
             <button class="btn me-2" onclick="openTab(event, 'projects')"><i class="fas fa-briefcase"></i> Projects</button>
             <button class="btn" onclick="openTab(event, 'contact')"><i class="fas fa-envelope"></i> Contact</button>
         </div>
 
-        <section id="about" class="tabcontent">
+        <section id="about" class="tabcontent" data-aos="zoom-in" data-aos-duration="1000">
             <h2>About Me</h2>
             <p>Welcome to my portfolio! I am a web developer with a passion for creating beautiful and functional websites. 
                My journey in the tech world started 5 years ago, and since then, I’ve been involved in various projects ranging 
@@ -69,26 +91,18 @@
             <p>In my spare time, I enjoy exploring new frameworks, contributing to open-source projects, and mentoring aspiring developers. 
                When I’m not coding, you’ll find me hiking, reading, or experimenting in the kitchen.</p>
         </section>
-        
-        <section id="projects" class="tabcontent" style="display: none;">
+
+        <section id="projects" class="tabcontent" style="display: none;" data-aos="zoom-out" data-aos-duration="1000">
             <h2>Projects</h2>
             <ul>
-                <li>
-                    <strong>Portfolio Website:</strong> A personal portfolio website built using HTML, CSS, and JavaScript to showcase my skills and projects.
-                </li>
-                <li>
-                    <strong>Task Manager App:</strong> A full-stack application for managing tasks and deadlines, developed using React and Node.js.
-                </li>
-                <li>
-                    <strong>E-Commerce Store:</strong> An online store with integrated payment processing and user authentication, built using Django.
-                </li>
-                <li>
-                    <strong>Weather App:</strong> A dynamic weather forecasting app using OpenWeather API, built with vanilla JavaScript.
-                </li>
+                <li><strong>Portfolio Website:</strong> A personal portfolio website built using HTML, CSS, and JavaScript to showcase my skills and projects.</li>
+                <li><strong>Task Manager App:</strong> A full-stack application for managing tasks and deadlines, developed using React and Node.js.</li>
+                <li><strong>E-Commerce Store:</strong> An online store with integrated payment processing and user authentication, built using Django.</li>
+                <li><strong>Weather App:</strong> A dynamic weather forecasting app using OpenWeather API, built with vanilla JavaScript.</li>
             </ul>
         </section>
-        
-        <section id="contact" class="tabcontent" style="display: none;">
+
+        <section id="contact" class="tabcontent" style="display: none;" data-aos="flip-up" data-aos-duration="1200">
             <h2>Contact</h2>
             <p><strong>Email:</strong> example@example.com</p>
             <p><strong>Phone:</strong> +1-234-567-890</p>
@@ -97,28 +111,89 @@
         </section>
     </main>
 
-    <footer class="text-center py-3">
+    <footer class="text-center py-3" data-aos="fade-up" data-aos-duration="1000">
         <p>&copy; 2025 My Portfolio</p>
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Particle.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
     <script>
+        // Initialize AOS
+        AOS.init();
+
         function openTab(evt, tabName) {
-            var tabcontent = document.getElementsByClassName("tabcontent");
-            for (var i = 0; i < tabcontent.length; i++) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
             }
-            document.getElementById(tabName).style.display = "block";
-            var buttons = document.getElementsByClassName("btn");
-            for (var j = 0; j < buttons.length; j++) {
-                buttons[j].classList.remove("active");
+            tablinks = document.getElementsByClassName("btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
-            evt.currentTarget.classList.add("active");
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
         }
 
+        // Initialize default tab
         document.getElementById("defaultOpen").click();
+
+        async function sendMessage(event) {
+            event.preventDefault();
+            const userInput = document.getElementById('user-input').value;
+            if (!userInput) return;
+
+            const chatMessages = document.querySelector('.chat-messages');
+            chatMessages.innerHTML += `<p class="user">You: ${userInput}</p>`;
+            document.getElementById('user-input').value = '';
+
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: userInput }),
+            });
+
+            const data = await response.json();
+            chatMessages.innerHTML += `<p class="bot">Bot: ${data.message}</p>`;
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Particle.js effect for Hero Section with night sky and stars
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 150, density: { enable: true, value_area: 800 } },
+                color: { value: "#ffffff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.3, random: true, anim: { enable: true, speed: 0.5, opacity_min: 0, sync: false } },
+                size: { value: 2, random: true, anim: { enable: true, speed: 3, size_min: 0.1, sync: false } },
+                line_linked: { enable: false }, // No lines between particles
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: "random",
+                    random: true,
+                    out_mode: "out",
+                    attract: { enable: false }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" }
+                },
+                modes: {
+                    repulse: { distance: 200, duration: 0.4 },
+                    push: { particles_nb: 4 }
+                }
+            },
+            retina_detect: true
+        });
     </script>
 </body>
 </html>

@@ -105,3 +105,23 @@ footer {
 .chat-form input::placeholder {
     color: #888;
 }
+
+/* Chatbox Styles */
+.chat-messages {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.chat-messages p {
+    margin: 10px 0;
+}
+
+.user {
+    text-align: right;
+    color: #007bff;
+}
+
+.bot {
+    text-align: left;
+    color: #28a745;
+}
