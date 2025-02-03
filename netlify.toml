@@ -1,0 +1,6 @@
+[build]
+  publish = "public"     # Directory with static files
+  functions = "functions" # Directory with serverless functions
+
+[dev]
+  command = "npm run dev" # Optional: Specify the local development command
