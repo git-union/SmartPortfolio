@@ -1,44 +1,32 @@
-name: Deploy to EC2
+- name: Deploy to EC2
+  run: |
+    ssh -i ~/.ssh/ec2_key.pem ec2-user@ec2-54-81-72-20.compute-1.amazonaws.com << 'EOF'
+      # Navigate to the home directory
+      cd ~
+      
+      # Clone the repository if it does not exist
+      if [ ! -d "my-node-app" ]; then
+        git clone https://github.com/YOUR-USERNAME/YOUR-REPO.git my-node-app
+      fi
 
-on:
-  push:
-    branches:
-      - main
+      # Navigate to the app directory
+      cd my-node-app
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
+      # Ensure we're on the correct branch
+      git checkout main
+      git reset --hard origin/main
+      git pull origin main
 
-    steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
+      # Install dependencies
+      npm install
 
-    - name: Set up SSH
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/ec2_key.pem
-        chmod 600 ~/.ssh/ec2_key.pem
-        ssh-keyscan -H ec2-54-81-72-20.compute-1.amazonaws.com >> ~/.ssh/known_hosts
+      # Kill any existing process
+      pkill -f "node agent.js" || echo "No existing process found"
 
-    - name: Deploy to EC2
-      run: |
-        ssh -i ~/.ssh/ec2_key.pem ec2-user@ec2-54-81-72-20.compute-1.amazonaws.com << 'EOF'
-          # Navigate to the app directory
-          cd ~/my-node-app
+      # Restart the app in the background
+      nohup node agent.js > app.log 2>&1 &
 
-          # Pull latest changes
-          git pull origin main
-
-          # Install dependencies
-          npm install
-
-          # Kill existing Node.js processes
-          pkill -f "node agent.js" || echo "No existing process found"
-
-          # Start the application in the background using nohup
-          nohup node agent.js > app.log 2>&1 &
-
-          # Confirm the process is running
-          sleep 2
-          ps aux | grep node
-        EOF
+      # Verify process is running
+      sleep 2
+      ps aux | grep node
+    EOF
