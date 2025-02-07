@@ -24,7 +24,7 @@ jobs:
 
     - name: Deploy to EC2
       run: |
-        ssh -i ~/.ssh/ec2_key.pem ec2-user@ec2-user@ec2-54-81-72-20.compute-1.amazonaws.com << 'EOF'
+        ssh -i ~/.ssh/ec2_key.pem ec2-user@ec2-54-81-72-20.compute-1.amazonaws.com << 'EOF'
           cd ~/my-node-app
           git pull
           npm install
