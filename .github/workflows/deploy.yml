@@ -1,6 +1,5 @@
 name: Deploy to EC2
 
-# Trigger deployment on push to the main branch
 on:
   push:
     branches:
@@ -19,16 +18,27 @@ jobs:
         mkdir -p ~/.ssh
         echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/ec2_key.pem
         chmod 600 ~/.ssh/ec2_key.pem
-        # Add your EC2 instance to known_hosts to avoid authenticity prompt.
         ssh-keyscan -H ec2-54-81-72-20.compute-1.amazonaws.com >> ~/.ssh/known_hosts
 
     - name: Deploy to EC2
       run: |
         ssh -i ~/.ssh/ec2_key.pem ec2-user@ec2-54-81-72-20.compute-1.amazonaws.com << 'EOF'
+          # Navigate to the app directory
           cd ~/my-node-app
-          git pull
-          npm install
-          pm2 restart my-node-app || pm2 start agent.js --name my-node-app
-        EOF
 
-# 
+          # Pull latest changes
+          git pull origin main
+
+          # Install dependencies
+          npm install
+
+          # Kill existing Node.js processes
+          pkill -f "node agent.js" || echo "No existing process found"
+
+          # Start the application in the background using nohup
+          nohup node agent.js > app.log 2>&1 &
+
+          # Confirm the process is running
+          sleep 2
+          ps aux | grep node
+        EOF
