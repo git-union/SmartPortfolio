@@ -4,7 +4,7 @@ const { OpenAI } = require('openai');
 require('dotenv').config();
 
 const app = express();
-const PORT = 3001;
+const PORT = 3000;
 
 // Serve the static files in the directory
 app.use(express.static(path.join(__dirname, 'public')));
