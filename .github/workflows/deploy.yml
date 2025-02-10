@@ -18,7 +18,7 @@ jobs:
         mkdir -p ~/.ssh
         echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/ec2_key.pem
         chmod 600 ~/.ssh/ec2_key.pem
-        ssh-keyscan -H ec2-54-81-72-20.compute-1.amazonaws.com >> ~/.ssh/known_hosts
+        ssh-keyscan -H ec2-35-175-186-138.compute-1.amazonaws.com >> ~/.ssh/known_hosts
 
     - name: Deploy to EC2
       run: |
