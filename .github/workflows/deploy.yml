@@ -28,7 +28,7 @@ jobs:
 
           # Clone the repository if it does not exist
           if [ ! -d "my-node-app" ]; then
-            git clone https://github.com/git-union/SmartPortfolio.git my-node-app
+            git clone https://github-${{ secrets.GITHUB_PAT }}@github.com/git-union/SmartPortfolio.git my-node-app
           fi
 
           # Navigate to the app directory
