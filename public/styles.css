@@ -1,5 +1,11 @@
 /* Minimal Dark Mode Styles */
-  
+.profile-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
 
 .project {
     background-color: #1c1c1c;
@@ -25,7 +31,8 @@ footer {
 }
 
 /* Buttons */
-button, .cta-button {
+button,
+.cta-button {
     background: #ffcc80;
     color: #121212;
     padding: 10px 15px;
@@ -35,7 +42,8 @@ button, .cta-button {
     transition: background 0.3s ease;
 }
 
-button:hover, .cta-button:hover {
+button:hover,
+.cta-button:hover {
     background: #e6b566;
 }
 
@@ -128,42 +136,43 @@ footer {
 
 /* Card Flip Container */
 .card-flip {
-    perspective: 1000px; /* Allows for the 3D flip effect */
-    position: relative; /* Helps manage positioning */
-  }
-  
-  /* Inner wrapper that will be rotated */
-  .card-flip .card-inner {
+    perspective: 1000px;
+    /* Allows for the 3D flip effect */
+    position: relative;
+    /* Helps manage positioning */
+}
+
+/* Inner wrapper that will be rotated */
+.card-flip .card-inner {
     position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 0.8s; 
-    transform-style: preserve-3d; 
-  }
-  
-  /* Front and Back sides */
-  .card-flip .front,
-  .card-flip .back {
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Front and Back sides */
+.card-flip .front,
+.card-flip .back {
     position: absolute;
     width: 100%;
-    backface-visibility: hidden; 
+    backface-visibility: hidden;
     top: 0;
     left: 0;
-  }
-  
-  /* By default, the back side is rotated 180 deg */
-  .card-flip .back {
+}
+
+/* By default, the back side is rotated 180 deg */
+.card-flip .back {
     transform: rotateY(180deg);
-  }
-  
-  /* Flip to show the back side */
-  .card-flip .card-inner.flipped {
+}
+
+/* Flip to show the back side */
+.card-flip .card-inner.flipped {
     transform: rotateY(180deg);
-  }
-  
-  /* (Optional) If you want the back side to be slightly wider for more content: */
-  .card-flip .card-inner.flipped .back {
+}
+
+/* (Optional) If you want the back side to be slightly wider for more content: */
+.card-flip .card-inner.flipped .back {
     width: 120%;
     margin-left: -10%;
-  }
-  
+}
