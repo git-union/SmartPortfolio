@@ -45,8 +45,7 @@
                 <!-- Left Half: Photo and Content -->
                 <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right" data-aos-duration="1200">
                     <div class="text-center text-md-start">
-                        <img src="img/profile.png" alt="Eesita Sen" class="profile-img"
-                            style="max-width: 150px;">
+                        <img src="img/profile.png" alt="Eesita Sen" class="profile-img" style="max-width: 150px;">
                         <h1>Hi, I'm <span class="text-primary">Eesita Sen</span></h1>
                         <p>A passionate software developer with over 3 years of experience creating intuitive and
                             scalable user-centric software solutions.</p>
@@ -54,7 +53,7 @@
                             <span class="badge me-2"><i class="fas fa-user-check"></i> User-Centered Design</span>
                             <span class="badge me-2"><i class="fas fa-brain"></i> Generative AI, ML, MLOps</span>
                             <span class="badge"><i class="fas fa-cloud"></i> Cloud-Native Development & DevOps</span>
-                            <span class="badge"><i class="fas fa-cloud"></i> Systems Design and Architecture</span>    
+                            <span class="badge"><i class="fas fa-cloud"></i> Systems Design and Architecture</span>
                         </div>
                         <!-- <a href="#projects" class="btn me-2">View My Work</a> -->
                         <a href="assets/resume.pdf" download="Eesita_Sen_Resume.pdf"
@@ -107,8 +106,8 @@
                 development side, I’m dedicated to crafting secure, robust solutions through rigorous software testing
                 and an iterative approach. My goal? To build digital products that delight users at every
                 interaction—and to do it with empathy, creativity, and precision.</p>
-            <p>In my spare time, I love discovering new flavors in my kitchen, planning my next travel adventure, and
-                indulging in thriller and sci-fi content.</p>
+            <p>In my spare time, I love exploring new culinary flavors, planning my next travel adventure, and
+                indulging in sci-fi and lighthearted workplace & lifestyle dramedies.</p>
         </section>
 
         <!-- ===================== Skills Overview Section ===================== -->
@@ -369,8 +368,8 @@
                                     <button class="btn btn-sm btn-primary" onclick="flipCard(this)">
                                         View Details
                                     </button>
-                                    <a href="https://github.com/NetworkStructures-CloudComputing-Eesita/nodejs-app-with-db-test" target="_blank"
-                                        class="btn btn-sm btn-outline-secondary">
+                                    <a href="https://github.com/NetworkStructures-CloudComputing-Eesita/nodejs-app-with-db-test"
+                                        target="_blank" class="btn btn-sm btn-outline-secondary">
                                         <i class="fab fa-github"></i> GitHub
                                     </a>
                                 </div>
@@ -513,7 +512,7 @@
             <div class="row row-cols-1 row-cols-md-2 g-4">
 
                 <!-- ======== Experience Card: Borderfree Technologies ======== -->
-                <div class="col">
+                <div class="col" id="borderfree-tech">
                     <div class="card h-100 shadow-sm">
                         <div class="card-body">
                             <h5 class="card-title">
@@ -596,7 +595,18 @@
             <p><strong>Phone:</strong> +1-857-350-2897</p>
             <p><strong>Location:</strong> Boston, MA</p>
             <p>Feel free to reach out to me for project collaborations, freelance work, or just to say hi!</p>
+
+            <!-- Social Links -->
+            <div class="d-flex gap-2 mt-3">
+                <a href="https://www.linkedin.com/in/eesita-sen-4a0a52169/" target="_blank" class="btn btn-outline-primary">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/Eesita" target="_blank" class="btn btn-outline-dark">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
         </section>
+
     </main>
 
     <!-- <footer class="text-center py-3" data-aos="fade-up" data-aos-duration="1000">
@@ -711,6 +721,32 @@
         }
     </script>
 
+    <!-- New script to handle anchor links in hidden tabs -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Get the target element by its ID
+                const targetID = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetID);
+
+                if (targetElement) {
+                    // Find the closest parent tab (section with class "tabcontent")
+                    const parentTab = targetElement.closest('.tabcontent');
+                    if (parentTab && parentTab.style.display === 'none') {
+                        // Open the tab corresponding to the hidden parent tab by using its id.
+                        openTab(
+                            { currentTarget: document.querySelector(`button[onclick*="openTab(event, '${parentTab.id}')"]`) },
+                            parentTab.id
+                        );
+                    }
+                    // Scroll smoothly to the target element after switching the tab
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 
 
 </body>
