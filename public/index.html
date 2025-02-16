@@ -2,751 +2,578 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- AOS CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Custom styles for hero section */
-        #hero {
-            position: relative;
-            color: white;
-            overflow: hidden;
-            background-color: #000;
-            /* Full height for the hero section */
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 
-        #hero-content {
-            position: absolute;
-            z-index: 2;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
-    </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Custom styles for hero section */
+    #hero {
+      position: relative;
+      color: white;
+      overflow: hidden;
+      background-color: #000;
+    }
+
+    #hero-content {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Hero Section with Particle.js -->
-    <header class="container-fluid py-5" id="hero">
-        <!-- Particle.js background -->
-        <div id="particles-js"></div>
+  <!-- Hero Section with Particle.js -->
+  <header class="container-fluid py-5" id="hero">
+    <!-- Particle.js background -->
+    <div id="particles-js"></div>
 
-        <div class="container" id="hero-content" data-aos="fade-up" data-aos-duration="1000">
-            <div class="row align-items-center">
-                <!-- Left Half: Photo and Content -->
-                <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right" data-aos-duration="1200">
-                    <div class="text-center text-md-start">
-                        <img src="img/profile.png" alt="Eesita Sen" class="profile-img" style="max-width: 150px;">
-                        <h1>Hi, I'm <span class="text-primary">Eesita Sen</span></h1>
-                        <p>A passionate software developer with over 3 years of experience creating intuitive and
-                            scalable user-centric software solutions.</p>
-                        <div class="mb-3">
-                            <span class="badge me-2"><i class="fas fa-user-check"></i> User-Centered Design</span>
-                            <span class="badge me-2"><i class="fas fa-brain"></i> Generative AI, ML, MLOps</span>
-                            <span class="badge"><i class="fas fa-cloud"></i> Cloud-Native Development & DevOps</span>
-                            <span class="badge"><i class="fas fa-cloud"></i> Systems Design and Architecture</span>
-                        </div>
-                        <!-- <a href="#projects" class="btn me-2">View My Work</a> -->
-                        <a href="assets/resume.pdf" download="Eesita_Sen_Resume.pdf"
-                            class="btn btn-outline-light">Download Resume</a>
-                    </div>
-                </div>
-
-                <!-- Right Half: Chatbox -->
-                <div class="col-md-6" data-aos="fade-left" data-aos-duration="1500">
-                    <div class="card">
-                        <div class="card-header bg-primary text-white">
-                            <h2 class="h5 mb-0">Chat with Me!</h2>
-                        </div>
-                        <div class="card-body">
-                            <div class="chat-messages mb-3">
-                                <p class="bot">Hi there! 👋 I'm Eesita's virtual assistant. How can I help you today?
-                                </p>
-                            </div>
-                            <form class="chat-form d-flex" onsubmit="sendMessage(event)">
-                                <input type="text" id="user-input" class="form-control me-2"
-                                    placeholder="Ask me anything...">
-                                <button type="submit" class="btn"><i class="fas fa-paper-plane"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+    <div class="container" id="hero-content" data-aos="fade-up" data-aos-duration="1000">
+      <div class="row align-items-center">
+        <!-- Left Half: Photo and Content -->
+        <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right" data-aos-duration="1200">
+          <div class="text-center text-md-start">
+            <img src="img/profile.png" alt="Eesita Sen" class="profile-img" style="max-width: 150px;" />
+            <h1>Hi, I'm <span class="text-primary">Eesita Sen</span></h1>
+            <p>
+              A passionate software developer with over 3 years of experience creating intuitive and scalable user-centric software solutions.
+            </p>
+            <div class="mb-3">
+              <span class="badge me-2"><i class="fas fa-user-check"></i> User-Centered Design</span>
+              <span class="badge me-2"><i class="fas fa-brain"></i> Generative AI, ML, MLOps</span>
+              <span class="badge"><i class="fas fa-cloud"></i> Cloud-Native Development & DevOps</span>
+              <span class="badge"><i class="fas fa-cloud"></i> Systems Design and Architecture</span>
             </div>
-        </div>
-    </header>
-
-    <main class="container my-5" data-aos="fade-up" data-aos-duration="1300">
-        <div class="d-flex justify-content-center mb-4">
-            <button class="btn me-2" onclick="openTab(event, 'about')" id="defaultOpen"><i
-                    class="fas fa-info-circle"></i> About</button>
-            <button class="btn me-2" onclick="openTab(event, 'skills')"><i class="fas fa-cogs"></i> Skills</button>
-            <button class="btn me-2" onclick="openTab(event, 'projects')"><i class="fas fa-laptop-code"></i>
-                Projects</button>
-            <button class="btn me-2" onclick="openTab(event, 'experience')"><i class="fas fa-briefcase"></i>
-                Professional Experience</button>
-            <button class="btn" onclick="openTab(event, 'contact')"><i class="fas fa-envelope"></i> Contact</button>
+            <a href="assets/resume.pdf" download="Eesita_Sen_Resume.pdf" class="btn btn-outline-light">Download Resume</a>
+          </div>
         </div>
 
-        <section id="about" class="tabcontent" data-aos="zoom-in" data-aos-duration="1000">
-            <h2>About Me</h2>
-            <p>Welcome to my portfolio! I'm Eesita Sen—a product focused developer and AI enthusiast passionate about
-                translating ideas into impactful, user-friendly solutions. My journey began five years ago, and I’ve
-                since worked on everything from user experience design and testing to AI-driven chatbots and automated
-                cloud infrastructures. I believe in blending user-centered design with rigorous software development practices to
-                ensure that every product not only works seamlessly but also resonates with its audience. My goal? To build digital products that delight users at every
-                interaction—and to do it with empathy, creativity, and precision.</p>
-            <p>In my spare time, I love exploring new culinary flavors, planning my next travel adventure, and
-                indulging in sci-fi and lighthearted workplace & lifestyle dramedies.</p>
-        </section>
+        <!-- Right Half: Chatbox -->
+        <div class="col-md-6" data-aos="fade-left" data-aos-duration="1500">
+          <div class="card">
+            <div class="card-header bg-primary text-white">
+              <h2 class="h5 mb-0">Chat with Me!</h2>
+            </div>
+            <div class="card-body">
+              <div class="chat-messages mb-3">
+                <p class="bot">Hi there! 👋 I'm Eesita's virtual assistant. How can I help you today?</p>
+              </div>
+              <form class="chat-form d-flex" onsubmit="sendMessage(event)">
+                <input type="text" id="user-input" class="form-control me-2" placeholder="Ask me anything..." />
+                <button type="submit" class="btn"><i class="fas fa-paper-plane"></i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-        <!-- ===================== Skills Overview Section ===================== -->
-        <section id="skills" class="tabcontent" style="display: none;" data-aos="fade-up" data-aos-duration="1000">
-            <h2>Skills Overview</h2>
-            <p>Here’s a snapshot of my core competencies and the projects where I've applied them.</p>
+  <main class="container my-5" data-aos="fade-up" data-aos-duration="1300">
+    <!-- Navigation Tabs (Reordered: About, Education, Skills, Projects, Experience, Contact) -->
+    <div class="d-flex justify-content-center mb-4">
+      <button class="btn me-2" onclick="openTab(event, 'about')" id="defaultOpen">
+        <i class="fas fa-info-circle"></i> About
+      </button>
+      <button class="btn me-2" onclick="openTab(event, 'education')">
+        <i class="fas fa-graduation-cap"></i> Education
+      </button>
+      <button class="btn me-2" onclick="openTab(event, 'skills')">
+        <i class="fas fa-cogs"></i> Skills
+      </button>
+      <button class="btn me-2" onclick="openTab(event, 'projects')">
+        <i class="fas fa-laptop-code"></i> Projects
+      </button>
+      <button class="btn me-2" onclick="openTab(event, 'experience')">
+        <i class="fas fa-briefcase"></i> Professional Experience
+      </button>
+      <button class="btn" onclick="openTab(event, 'contact')">
+        <i class="fas fa-envelope"></i> Contact
+      </button>
+    </div>
 
-            <!-- Responsive Grid -->
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <!-- About Section -->
+    <section id="about" class="tabcontent" data-aos="zoom-in" data-aos-duration="1000">
+      <h2>About Me</h2>
+      <p>
+        Welcome to my portfolio! I'm Eesita Sen—a product-focused developer and AI enthusiast passionate about translating ideas into impactful, user-friendly solutions. My journey began five years ago, and I’ve since worked on everything from user experience design and testing to AI-driven chatbots and automated cloud infrastructures. I believe in blending user-centered design with rigorous software development practices to ensure that every product not only works seamlessly but also resonates with its audience. My goal? To build digital products that delight users at every interaction—and to do it with empathy, creativity, and precision.
+      </p>
+      <p>
+        In my spare time, I love exploring new culinary flavors, planning my next travel adventure, and indulging in sci-fi and lighthearted workplace & lifestyle dramedies.
+      </p>
+    </section>
 
-                <!-- ===================== Card 1: Software Development ===================== -->
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title">Software Development</h5>
-                            <!-- Skill 1 -->
-                            <p class="mt-3 mb-1">Golang</p>
-                            <!-- <div class="progress mb-2">
-              <div 
-                class="progress-bar bg-info" 
-                role="progressbar" 
-                style="width: 80%;" 
-                aria-valuenow="80" 
-                aria-valuemin="0" 
-                aria-valuemax="100">
-                80%
+    <!-- Education Section (Placed immediately after About) -->
+    <section id="education" class="tabcontent" style="display: none;" data-aos="fade-up" data-aos-duration="1000">
+      <h2>Education</h2>
+      <div class="row g-4">
+        <!-- Northeastern University -->
+        <div class="col-md-6">
+          <div class="card shadow-sm">
+            <div class="row g-0">
+              <div class="col-md-4 d-flex align-items-center justify-content-center p-2">
+                <img src="img/northeastern-logo.png" alt="Northeastern University Logo" class="img-fluid">
               </div>
-            </div> -->
-                            <!-- Skill 2 -->
-                            <p class="mt-3 mb-1">Python</p>
-                            <!-- <div class="progress mb-2">
-              <div 
-                class="progress-bar bg-info" 
-                role="progressbar" 
-                style="width: 80%;" 
-                aria-valuenow="80" 
-                aria-valuemin="0" 
-                aria-valuemax="100">
-                80%
-              </div>
-            </div> -->
-                            <!-- Skill 3 -->
-                            <p class="mt-3 mb-1">JavaScript</p>
-                            <!-- <div class="progress mb-2">
-              <div 
-                class="progress-bar bg-info" 
-                role="progressbar" 
-                style="width: 85%;" 
-                aria-valuenow="85" 
-                aria-valuemin="0" 
-                aria-valuemax="100">
-                85%
-              </div>
-            </div> -->
-                            <!-- Skill 4 -->
-                            <!-- <p class="mt-3 mb-1">.NET</p> -->
-                            <!-- <div class="progress mb-2">
-              <div 
-                class="progress-bar bg-info" 
-                role="progressbar" 
-                style="width: 75%;" 
-                aria-valuenow="75" 
-                aria-valuemin="0" 
-                aria-valuemax="100">
-                75%
-              </div>
-            </div> -->
-                            <!-- Project References -->
-                            <p class="mt-3 mb-1">Java</p>
-                            <p class="mt-3 mb-1">Node.js</p>
-                            <p class="mt-3">
-                                <strong>Used In:</strong>
-                                <a href="#aws-infra">AWS Infrastructure Automation</a>,
-                                <a href="#borderfree-tech">Borderfree Technologies Project</a>
-                            </p>
-                        </div>
-                    </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">MS in Information Systems</h5>
+                  <p class="card-text"><strong>Northeastern University</strong> | Boston, MA</p>
+                  <p class="card-text"><strong>GPA:</strong> 3.4/4</p>
+                  <p class="card-text"><strong>Duration:</strong> Sep 2023 – May 2025</p>
                 </div>
-
-                <!-- ===================== Card 2: DevOps & IaC ===================== -->
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title">DevOps & Infrastructure-as-Code</h5>
-                            <!-- Skill 1 -->
-                            <p class="mt-3 mb-1">AWS</p>
-                            <!-- <div class="progress mb-2">
-              <div 
-                class="progress-bar bg-success" 
-                role="progressbar" 
-                style="width: 90%;" 
-                aria-valuenow="90" 
-                aria-valuemin="0" 
-                aria-valuemax="100">
-                90%
               </div>
-            </div> -->
-                            <!-- Skill 2 -->
-                            <p class="mt-3 mb-1">Terraform</p>
-                            <!-- <div class="progress mb-2">
-              <div 
-                class="progress-bar bg-success" 
-                role="progressbar" 
-                style="width: 85%;" 
-                aria-valuenow="85" 
-                aria-valuemin="0" 
-                aria-valuemax="100">
-                85%
+            </div>
+          </div>
+        </div>
+        <!-- SRM Institute -->
+        <div class="col-md-6">
+          <div class="card shadow-sm">
+            <div class="row g-0">
+              <div class="col-md-4 d-flex align-items-center justify-content-center p-2">
+                <img src="img/srm-logo.png" alt="SRM Institute Logo" class="img-fluid">
               </div>
-            </div> -->
-                            <!-- Skill 3 -->
-                            <p class="mt-3 mb-1">Packer</p>
-                            <!-- <div class="progress mb-2">
-              <div 
-                class="progress-bar bg-success" 
-                role="progressbar" 
-                style="width: 80%;" 
-                aria-valuenow="80" 
-                aria-valuemin="0" 
-                aria-valuemax="100">
-                80%
-              </div>
-            </div> -->
-                            <!-- Skill 4 -->
-                            <p class="mt-3 mb-1">GitHub Actions (CI/CD)</p>
-                            <!-- <div class="progress mb-2">
-              <div 
-                class="progress-bar bg-success" 
-                role="progressbar" 
-                style="width: 85%;" 
-                aria-valuenow="85" 
-                aria-valuemin="0" 
-                aria-valuemax="100">
-                85%
-              </div>
-            </div> -->
-                            <!-- Project References -->
-                            <p class="mt-3">
-                                <strong>Used In:</strong>
-                                <a href="#aws-infra">AWS Infrastructure Automation</a>,
-                                <a href="#borderfree-tech">Borderfree Technologies Project</a>
-                            </p>
-                        </div>
-                    </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">BS in Information Technology</h5>
+                  <p class="card-text"><strong>SRM Institute</strong> | India</p>
+                  <p class="card-text"><strong>GPA:</strong> 7.5/10</p>
+                  <p class="card-text"><strong>Duration:</strong> Jun 2015 – May 2019</p>
                 </div>
-
-                <!-- ===================== Card 3: AI & Agent Integration ===================== -->
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title">AI & Agent Integration</h5>
-                            <!-- Skill 1 -->
-                            <p class="mt-3 mb-1">OpenAI LLM</p>
-                            <!-- <div class="progress mb-2">
-              <div 
-                class="progress-bar bg-warning" 
-                role="progressbar" 
-                style="width: 85%;" 
-                aria-valuenow="85" 
-                aria-valuemin="0" 
-                aria-valuemax="100">
-                85%
               </div>
-            </div> -->
-                            <!-- Skill 2 -->
-                            <p class="mt-3 mb-1">LangChain</p>
-                            <!-- <div class="progress mb-2">
-              <div 
-                class="progress-bar bg-warning" 
-                role="progressbar" 
-                style="width: 80%;" 
-                aria-valuenow="80" 
-                aria-valuemin="0" 
-                aria-valuemax="100">
-                80%
-              </div>
-            </div> -->
-                            <!-- Skill 3 -->
-                            <p class="mt-3 mb-1">Flask (AI Apps)</p>
-                            <!-- <div class="progress mb-2">
-              <div 
-                class="progress-bar bg-warning" 
-                role="progressbar" 
-                style="width: 85%;" 
-                aria-valuenow="85" 
-                aria-valuemin="0" 
-                aria-valuemax="100">
-                85%
-              </div>
-            </div> -->
-                            <!-- Project References -->
-                            <p class="mt-3">
-                                <strong>Used In:</strong>
-                                <a href="#ai-based-portfolio">AI-Based Portfolio Agent & Chatbot</a>
-                            </p>
-                        </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="tabcontent" style="display: none;" data-aos="fade-up" data-aos-duration="1000">
+      <h2>Skills Overview</h2>
+      <p>Here’s a snapshot of my core competencies and the projects where I've applied them.</p>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <!-- Software Development Card -->
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Software Development</h5>
+              <p class="mt-3 mb-1">Golang</p>
+              <p class="mt-3 mb-1">Python</p>
+              <p class="mt-3 mb-1">JavaScript</p>
+              <p class="mt-3 mb-1">Java</p>
+              <p class="mt-3 mb-1">Node.js</p>
+              <p class="mt-3">
+                <strong>Used In:</strong>
+                <a href="#aws-infra">AWS Infrastructure Automation</a>,
+                <a href="#borderfree-tech">Borderfree Technologies Project</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- DevOps & IaC Card -->
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">DevOps & Infrastructure-as-Code</h5>
+              <p class="mt-3 mb-1">AWS</p>
+              <p class="mt-3 mb-1">Terraform</p>
+              <p class="mt-3 mb-1">Packer</p>
+              <p class="mt-3 mb-1">GitHub Actions (CI/CD)</p>
+              <p class="mt-3">
+                <strong>Used In:</strong>
+                <a href="#aws-infra">AWS Infrastructure Automation</a>,
+                <a href="#borderfree-tech">Borderfree Technologies Project</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- AI & Agent Integration Card -->
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">AI & Agent Integration</h5>
+              <p class="mt-3 mb-1">OpenAI LLM</p>
+              <p class="mt-3 mb-1">LangChain</p>
+              <p class="mt-3 mb-1">Flask (AI Apps)</p>
+              <p class="mt-3">
+                <strong>Used In:</strong>
+                <a href="#ai-based-portfolio">AI-Based Portfolio Agent & Chatbot</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="tabcontent" style="display: none;" data-aos="fade-up" data-aos-duration="1000">
+      <h2>Projects Overview</h2>
+      <p>Below is a quick snapshot of some key projects I've worked on. Click "View Details" or the GitHub link for more info.</p>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <!-- Project Card: AI-Based Portfolio Agent & Chatbot -->
+        <div class="col">
+          <div class="card-flip" id="ai-based-portfolio">
+            <div class="card-inner">
+              <!-- Front Side -->
+              <div class="card front shadow-sm">
+                <div class="card-body">
+                  <h5 class="card-title mb-3">AI-Based Portfolio Agent and Chatbot</h5>
+                  <div class="row text-center mb-3">
+                    <div class="col">
+                      <i class="fas fa-brain" style="font-size: 1.75rem;"></i>
+                      <p class="mb-0">AI</p>
                     </div>
-                </div>
-
-                <!-- ===================== Add More Category Cards as Needed ===================== -->
-
-            </div> <!-- end row -->
-        </section>
-
-
-        <!-- <section id="projects" class="tabcontent" style="display: none;" data-aos="zoom-out" data-aos-duration="1000">
-            <h2>Projects</h2>
-            <ul>
-                <li><strong>Portfolio Website:</strong> A personal portfolio website built using HTML, CSS, and JavaScript to showcase my skills and projects.</li>
-                <li><strong>Task Manager App:</strong> A full-stack application for managing tasks and deadlines, developed using React and Node.js.</li>
-                <li><strong>E-Commerce Store:</strong> An online store with integrated payment processing and user authentication, built using Django.</li>
-                <li><strong>Weather App:</strong> A dynamic weather forecasting app using OpenWeather API, built with vanilla JavaScript.</li>
-            </ul>
-        </section> -->
-
-        <!-- ===================== Projects Grid with Flip ===================== -->
-        <section id="projects" class="tabcontent" style="display: none;" data-aos="fade-up" data-aos-duration="1000">
-            <h2>Projects Overview</h2>
-            <p>Below is a quick snapshot of some key projects I've worked on. Click "View Details" or the GitHub link
-                for more info.</p>
-
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-
-                <!-- ========== Project Card 1 ========== -->
-                <div class="col">
-                    <div class="card-flip" id="aws-infra">
-                        <div class="card-inner">
-
-                            <!-- ========== Front Side ========== -->
-                            <div class="card front shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title mb-3">AWS Infrastructure Automation</h5>
-
-                                    <!-- Tech Stack Icons & Names -->
-                                    <div class="row text-center mb-3">
-                                        <div class="col">
-                                            <i class="fab fa-aws" style="font-size: 1.75rem;"></i>
-                                            <p class="mb-0">AWS</p>
-                                        </div>
-                                        <div class="col">
-                                            <i class="fas fa-code-branch" style="font-size: 1.75rem;"></i>
-                                            <p class="mb-0">Terraform</p>
-                                        </div>
-                                        <div class="col">
-                                            <i class="fab fa-github" style="font-size: 1.75rem;"></i>
-                                            <p class="mb-0">GitHub</p>
-                                        </div>
-                                    </div>
-
-                                    <p class="card-text">
-                                        Automated infrastructure provisioning using Terraform, GitHub Actions,
-                                        and Packer, integrating AWS services for scalable deployments.
-                                    </p>
-                                    <p><strong>Key Metric:</strong> Reduced deployment time by <em>40%</em>.</p>
-                                </div>
-                                <div class="card-footer d-flex justify-content-between">
-                                    <!-- "View Details" flips to the back side -->
-                                    <button class="btn btn-sm btn-primary" onclick="flipCard(this)">
-                                        View Details
-                                    </button>
-                                    <a href="https://github.com/NetworkStructures-CloudComputing-Eesita/nodejs-app-with-db-test"
-                                        target="_blank" class="btn btn-sm btn-outline-secondary">
-                                        <i class="fab fa-github"></i> GitHub
-                                    </a>
-                                </div>
-                            </div><!-- /.front -->
-
-                            <!-- ========== Back Side (Detailed) ========== -->
-                            <div class="card back shadow-lg">
-                                <div class="card-body">
-                                    <h5 class="card-title mb-3">AWS Infrastructure Automation - Details</h5>
-
-                                    <!-- Example Detailed Content (e.g., STAR or extended info) -->
-                                    <h6><strong>Situation:</strong></h6>
-                                    <p>Needed a scalable AWS environment with automated provisioning and minimal
-                                        downtime.</p>
-
-                                    <h6><strong>Task:</strong></h6>
-                                    <p>Implement Infrastructure as Code using Terraform, Packer, and CI/CD pipelines.
-                                    </p>
-
-                                    <h6><strong>Action:</strong></h6>
-                                    <ul>
-                                        <li>Developed RESTful APIs & integrated AWS (SNS, S3, RDS).</li>
-                                        <li>Used Terraform & Packer for fully automated infrastructure.</li>
-                                        <li>Configured GitHub Actions pipelines for CI/CD.</li>
-                                        <li>Enabled monitoring with CloudWatch & custom metrics.</li>
-                                    </ul>
-
-                                    <h6><strong>Result:</strong></h6>
-                                    <p>Reduced deployment times by 40%, increased reliability, and streamlined updates.
-                                    </p>
-                                </div>
-                                <div class="card-footer text-end">
-                                    <!-- "Back" flips to the front side -->
-                                    <button class="btn btn-sm btn-secondary" onclick="flipCard(this)">
-                                        Back
-                                    </button>
-                                </div>
-                            </div><!-- /.back -->
-
-                        </div><!-- /.card-inner -->
-                    </div><!-- /.card-flip -->
-                </div><!-- /.col -->
-
-                <!-- Repeat the flip structure for other cards... -->
-
-                <!-- ========== Project Card: SmartPortfolio ========== -->
-                <div class="col">
-                    <div class="card-flip" id="ai-based-portfolio">
-                        <div class="card-inner">
-
-                            <!-- ========== Front Side ========== -->
-                            <div class="card front shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title mb-3">AI-Based Portfolio Agent and Chatbot</h5>
-
-                                    <!-- Tech Stack Icons & Names -->
-                                    <div class="row text-center mb-3">
-                                        <div class="col">
-                                            <i class="fas fa-brain" style="font-size: 1.75rem;"></i>
-                                            <p class="mb-0">AI</p>
-                                        </div>
-                                        <div class="col">
-                                            <i class="fab fa-js" style="font-size: 1.75rem;"></i>
-                                            <p class="mb-0">JavaScript</p>
-                                        </div>
-                                        <div class="col">
-                                            <i class="fab fa-aws" style="font-size: 1.75rem;"></i>
-                                            <p class="mb-0">AWS</p>
-                                        </div>
-                                    </div>
-
-                                    <p class="card-text">
-                                        Developed an AI-powered chatbot leveraging OpenAI's LLM and RAG framework
-                                        to handle portfolio-related queries and automate tasks.
-                                    </p>
-                                    <p><strong>Key Metric:</strong> Automated scheduling and reminders, reducing manual
-                                        effort by <em>70%</em>.</p>
-                                </div>
-                                <div class="card-footer d-flex justify-content-between">
-                                    <!-- "View Details" flips to the back side -->
-                                    <button class="btn btn-sm btn-primary" onclick="flipCard(this)">
-                                        View Details
-                                    </button>
-                                    <a href="https://github.com/git-union/SmartPortfolio" target="_blank"
-                                        class="btn btn-sm btn-outline-secondary">
-                                        <i class="fab fa-github"></i> GitHub
-                                    </a>
-                                </div>
-                            </div><!-- /.front -->
-
-                            <!-- ========== Back Side (Detailed) ========== -->
-                            <div class="card back shadow-lg">
-                                <div class="card-body">
-                                    <h5 class="card-title mb-3">AI-Based Portfolio Agent and Chatbot - Details</h5>
-
-                                    <!-- Example Detailed Content (e.g., STAR or extended info) -->
-                                    <h6><strong>Situation:</strong></h6>
-                                    <p>Needed an AI-driven assistant to automate portfolio management tasks and provide
-                                        real-time responses.</p>
-
-                                    <h6><strong>Task:</strong></h6>
-                                    <p>Develop an AI chatbot with automation features using OpenAI LLM and LangChain.
-                                    </p>
-
-                                    <h6><strong>Action:</strong></h6>
-                                    <ul>
-                                        <li>Built an AI chatbot using OpenAI LLM and vector databases for contextual
-                                            responses.</li>
-                                        <li>Developed a LangChain-powered agent for automating scheduling and email
-                                            notifications.</li>
-                                        <li>Integrated Google Calendar API and SendGrid for automated meeting setups and
-                                            reminders.</li>
-                                        <li>Automated build and deployment workflows using GitHub Actions.</li>
-                                    </ul>
-
-                                    <h6><strong>Result:</strong></h6>
-                                    <p>Reduced manual scheduling effort by 70%, improved response accuracy, and enhanced
-                                        portfolio engagement.</p>
-                                </div>
-                                <div class="card-footer text-end">
-                                    <!-- "Back" flips to the front side -->
-                                    <button class="btn btn-sm btn-secondary" onclick="flipCard(this)">
-                                        Back
-                                    </button>
-                                </div>
-                            </div><!-- /.back -->
-
-                        </div><!-- /.card-inner -->
-                    </div><!-- /.card-flip -->
-                </div><!-- /.col -->
-
-            </div><!-- /.row -->
-        </section>
-
-        <!-- ===================== Professional Experience Section ===================== -->
-        <section id="experience" class="tabcontent" style="display: none;" data-aos="fade-up" data-aos-duration="1000">
-            <h2>Professional Experience</h2>
-            <p>A snapshot of my industry experience and key contributions.</p>
-
-            <div class="row row-cols-1 row-cols-md-2 g-4">
-
-                <!-- ======== Experience Card: Borderfree Technologies ======== -->
-                <div class="col" id="borderfree-tech">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <i class="fas fa-laptop-code me-2"></i> Software Engineer - Borderfree Technologies
-                            </h5>
-                            <h6 class="text-muted">Nov 2021 – Aug 2023 | Remote</h6>
-                            <p><strong>Tech Stack:</strong> AWS (IAM, EC2, Lambda, S3, SQS), Golang, Elasticsearch,
-                                DynamoDB</p>
-
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check-circle text-primary"></i> Engineered core platform, boosting
-                                    adoption by 50%.</li>
-                                <li><i class="fas fa-sync-alt text-primary"></i> Automated product updates, reducing
-                                    manual effort by 75%.</li>
-                                <li><i class="fas fa-chart-line text-primary"></i> Improved monitoring efficiency by 40%
-                                    via Slack alerts.</li>
-                            </ul>
-
-                            <!-- Collapsible Details -->
-                            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="collapse"
-                                data-bs-target="#borderfree-details">
-                                View Details <i class="fas fa-chevron-down"></i>
-                            </button>
-
-                            <div id="borderfree-details" class="collapse mt-3">
-                                <ul>
-                                    <li>Integrated with 50+ online stores via REST APIs.</li>
-                                    <li>Created AWS Lambda for OpenSearch document sync, reducing cycle times by 30%.
-                                    </li>
-                                    <li>Ensured seamless data integrity with error-handling automation.</li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="col">
+                      <i class="fab fa-js" style="font-size: 1.75rem;"></i>
+                      <p class="mb-0">JavaScript</p>
                     </div>
-                </div>
-
-                <!-- ======== Experience Card: Merck ======== -->
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <i class="fas fa-database me-2"></i> Software Engineer - Merck
-                            </h5>
-                            <h6 class="text-muted">Oct 2020 – Oct 2021 | Bangalore, India</h6>
-                            <p><strong>Tech Stack:</strong> .NET, Microsoft SQL Server, ServiceNow, PowerShell</p>
-
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-cogs text-success"></i> Improved requirements accuracy by 35%.</li>
-                                <li><i class="fas fa-users text-success"></i> Enhanced rollout speed by 35%, supporting
-                                    150+ employees.</li>
-                                <li><i class="fas fa-chart-pie text-success"></i> Ensured 99% uptime with ITIL-driven
-                                    incident management.</li>
-                            </ul>
-
-                            <!-- Collapsible Details -->
-                            <button class="btn btn-sm btn-outline-success" data-bs-toggle="collapse"
-                                data-bs-target="#merck-details">
-                                View Details <i class="fas fa-chevron-down"></i>
-                            </button>
-
-                            <div id="merck-details" class="collapse mt-3">
-                                <ul>
-                                    <li>Contributed to .NET software development & Computer System Validation.</li>
-                                    <li>Led technical support initiatives reducing support tickets by 18%.</li>
-                                    <li>Facilitated global collaboration across 50+ teams with ITIL best practices.</li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="col">
+                      <i class="fab fa-aws" style="font-size: 1.75rem;"></i>
+                      <p class="mb-0">AWS</p>
                     </div>
+                  </div>
+                  <p class="card-text">
+                    Developed an AI-powered chatbot leveraging OpenAI's LLM and RAG framework to handle portfolio-related queries and automate tasks.
+                  </p>
+                  <p><strong>Key Metric:</strong> Reducing time-to-insight by <em>50%</em>.</p>
                 </div>
-
-            </div> <!-- End Row -->
-        </section>
-
-
-
-        <section id="contact" class="tabcontent" style="display: none;" data-aos="flip-up" data-aos-duration="1200">
-            <h2>Contact</h2>
-            <p><strong>Email:</strong> sen.ee@northeastern.edu</p>
-            <p><strong>Phone:</strong> +1-857-350-2897</p>
-            <p><strong>Location:</strong> Boston, MA</p>
-            <p>Feel free to reach out to me for project collaborations, freelance work, or just to say hi!</p>
-
-            <!-- Social Links -->
-            <div class="d-flex gap-2 mt-3">
-                <a href="https://www.linkedin.com/in/eesita-sen-4a0a52169/" target="_blank" class="btn btn-outline-primary">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                <a href="https://github.com/Eesita" target="_blank" class="btn btn-outline-dark">
+                <div class="card-footer d-flex justify-content-between">
+                  <button class="btn btn-sm btn-primary" onclick="flipCard(this)">View Details</button>
+                  <a href="https://github.com/git-union/SmartPortfolio" target="_blank" class="btn btn-sm btn-outline-secondary">
                     <i class="fab fa-github"></i> GitHub
-                </a>
+                  </a>
+                </div>
+              </div>
+              <!-- Back Side -->
+              <div class="card back shadow-lg">
+                <div class="card-body">
+                  <h5 class="card-title mb-3">AI-Based Portfolio Agent and Chatbot</h5>
+                  <p><strong>Duration:</strong> Jan 2025 – Feb 2025</p>
+                  <p><strong>Technologies:</strong> OpenAI LLM, RAG Framework, AWS, Node.js, JavaScript</p>
+                  <h6><strong>Overview:</strong></h6>
+                  <p>
+                    Developed an intelligent chatbot leveraging a Retrieval Augmented Generation (RAG) framework and OpenAI LLM to deliver real-time portfolio insights and responses, enhancing user engagement and information accuracy.
+                  </p>
+                  <h6><strong>Key Contributions:</strong></h6>
+                  <ul>
+                    <li><strong>AI Chatbot Development:</strong> Designed and implemented a RAG-based chatbot using OpenAI LLM and vector databases for dynamic, context-aware responses to portfolio-related queries.</li>
+                    <li><strong>Dynamic Data Extraction:</strong> Integrated web scraping tools (Cheerio, Axios) to automatically extract job descriptions and portfolio data, generating structured, AI-powered summaries.</li>
+                    <li><strong>Robust Deployment & Security:</strong> Achieved zero-downtime updates on an EC2 instance by implementing automated deployment workflows with GitHub Actions, managing DNS with Route 53, and securing HTTPS access via an AWS Load Balancer integrated with AWS Certificate Manager.</li>
+                  </ul>
+                  <h6><strong>Outcome:</strong></h6>
+                  <p>
+                    Delivered a responsive and secure AI-driven portfolio agent that streamlined information retrieval, maintained high availability, and provided real-time, data-rich insights to users.
+                  </p>
+                </div>
+                <div class="card-footer text-end">
+                  <button class="btn btn-sm btn-secondary" onclick="flipCard(this)">Back</button>
+                </div>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
 
-    </main>
+        <!-- Project Card: AWS Infrastructure Automation -->
+        <div class="col">
+          <div class="card-flip" id="aws-infra">
+            <div class="card-inner">
+              <!-- Front Side -->
+              <div class="card front shadow-sm">
+                <div class="card-body">
+                  <h5 class="card-title mb-3">AWS Infrastructure Automation</h5>
+                  <div class="row text-center mb-3">
+                    <div class="col">
+                      <i class="fab fa-aws" style="font-size: 1.75rem;"></i>
+                      <p class="mb-0">AWS</p>
+                    </div>
+                    <div class="col">
+                      <i class="fas fa-code-branch" style="font-size: 1.75rem;"></i>
+                      <p class="mb-0">Terraform</p>
+                    </div>
+                    <div class="col">
+                      <i class="fab fa-github" style="font-size: 1.75rem;"></i>
+                      <p class="mb-0">GitHub</p>
+                    </div>
+                  </div>
+                  <p class="card-text">
+                    Automated infrastructure provisioning using Terraform, GitHub Actions, and Packer, integrating AWS services for scalable deployments.
+                  </p>
+                  <p><strong>Key Metric:</strong> Reduced deployment time by <em>40%</em>.</p>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                  <button class="btn btn-sm btn-primary" onclick="flipCard(this)">View Details</button>
+                  <a href="https://github.com/NetworkStructures-CloudComputing-Eesita/nodejs-app-with-db-test" target="_blank" class="btn btn-sm btn-outline-secondary">
+                    <i class="fab fa-github"></i> GitHub
+                  </a>
+                </div>
+              </div>
+              <!-- Back Side -->
+              <div class="card back shadow-lg">
+                <div class="card-body">
+                  <h5 class="card-title mb-3">AWS Infrastructure Automation</h5>
+                  <p><strong>Duration:</strong> Sept 2024 – Nov 2024</p>
+                  <p><strong>Technologies:</strong> AWS, Terraform, Packer, GitHub Actions, Node.js, SQL</p>
+                  <h6><strong>Overview:</strong></h6>
+                  <p>
+                    Developed a fully automated AWS infrastructure solution that streamlined deployments, enhanced scalability, and ensured robust system performance.
+                  </p>
+                  <h6><strong>Key Contributions:</strong></h6>
+                  <ul>
+                    <li><strong>API & Service Integration:</strong> Developed RESTful APIs with Node.js, integrating AWS services such as SNS, S3, and RDS; implemented Lambda functions for real-time notifications.</li>
+                    <li><strong>Infrastructure Automation:</strong> Automated provisioning using Terraform, managing VPC, EC2, RDS, Auto Scaling Groups, ALB, and security groups.</li>
+                    <li><strong>CI/CD Pipeline Development:</strong> Built automated pipelines with GitHub Actions and created custom AMIs using Packer, resulting in faster and more reliable deployments.</li>
+                    <li><strong>Monitoring & Diagnostics:</strong> Enabled comprehensive monitoring with CloudWatch, implemented custom metrics via StatsD/Winston, and centralized logging to facilitate diagnostics.</li>
+                    <li><strong>Scalability & Reliability Enhancements:</strong> Leveraged Auto Scaling Groups, Load Balancers, and Route 53 for effective DNS management, ensuring seamless scaling under load.</li>
+                  </ul>
+                  <h6><strong>Outcome:</strong></h6>
+                  <p>
+                    Delivered a scalable, reliable, and fully automated AWS infrastructure that significantly reduced manual intervention, accelerated deployment cycles, and enhanced overall system performance.
+                  </p>
+                </div>
+                <div class="card-footer text-end">
+                  <button class="btn btn-sm btn-secondary" onclick="flipCard(this)">Back</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Additional project cards can be added here -->
+      </div>
+    </section>
 
-    <!-- <footer class="text-center py-3" data-aos="fade-up" data-aos-duration="1000">
-        <p>&copy; 2025 My Portfolio</p>
-    </footer> -->
+    <!-- Professional Experience Section -->
+    <section id="experience" class="tabcontent" style="display: none;" data-aos="fade-up" data-aos-duration="1000">
+      <h2>Professional Experience</h2>
+      <p>A snapshot of my industry experience and key contributions.</p>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <!-- Borderfree Technologies Experience -->
+        <div class="col" id="borderfree-tech">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">
+                <i class="fas fa-laptop-code me-2"></i> Software Engineer - Borderfree Technologies
+              </h5>
+              <p><strong>Duration:</strong> Oct 2020 – Oct 2021 | Bangalore, India</p>
+              <p><strong>Tech Stack:</strong> AWS (IAM, EC2, Lambda, S3, SQS), Golang, Elasticsearch, DynamoDB</p>
+              <div class="row text-center mb-3">
+                <div class="col">
+                  <i class="fab fa-aws" style="font-size: 1.75rem;"></i>
+                  <p class="mb-0">AWS</p>
+                </div>
+                <div class="col">
+                  <i class="fab fa-golang" style="font-size: 1.75rem;"></i>
+                  <p class="mb-0">Golang</p>
+                </div>
+                <div class="col">
+                  <i class="fas fa-search" style="font-size: 1.75rem;"></i>
+                  <p class="mb-0">Elasticsearch</p>
+                </div>
+                <div class="col">
+                  <i class="fas fa-database" style="font-size: 1.75rem;"></i>
+                  <p class="mb-0">DynamoDB</p>
+                </div>
+              </div>
+              <ul class="list-unstyled">
+                <li><i class="fas fa-check-circle text-primary"></i> Engineered core platform, boosting adoption by 50%.</li>
+                <li><i class="fas fa-sync-alt text-primary"></i> Automated product updates, reducing manual effort by 75%.</li>
+                <li><i class="fas fa-chart-line text-primary"></i> Improved monitoring efficiency by 40% via Slack alerts.</li>
+              </ul>
+              <button class="btn btn-sm btn-outline-primary" data-bs-toggle="collapse" data-bs-target="#borderfree-details">
+                View Details <i class="fas fa-chevron-down"></i>
+              </button>
+              <div id="borderfree-details" class="collapse mt-3">
+                <ul>
+                  <li>Led agile software development practices for a live shopping platform, integrating with over 50 online merchant stores using RESTful APIs.</li>
+                  <li>Engineered core functionalities for inventory management and synchronization of discounts and rewards, contributing to a 50% increase in platform adoption and a 70% rise in sales.</li>
+                  <li>Developed an automated system leveraging webhooks to streamline product updates and deletions, reducing manual intervention by 75% and ensuring data integrity with robust error-handling.</li>
+                  <li>Created an AWS Lambda function for automatic synchronization of OpenSearch documents upon S3 object uploads, reducing operational cycle times by 30%.</li>
+                  <li>Improved monitoring efficiency by 40% and enabled faster responses to critical events with real-time store sync alerts via Slack.</li>
+                  <li>Automated shop integration via schedulers, ensuring seamless product information synchronization, token updates, and user data processing.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Merck Experience -->
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">
+                <i class="fas fa-database me-2"></i> Software Engineer - Merck
+              </h5>
+              <p><strong>Duration:</strong> Oct 2020 – Oct 2021 | Bangalore, India</p>
+              <p><strong>Tech Stack:</strong> .NET, Microsoft SQL Server, ServiceNow, PowerShell</p>
+              <div class="row text-center mb-3">
+                <div class="col">
+                  <i class="fab fa-microsoft" style="font-size: 1.75rem;"></i>
+                  <p class="mb-0">.NET</p>
+                </div>
+                <div class="col">
+                  <i class="fas fa-database" style="font-size: 1.75rem;"></i>
+                  <p class="mb-0">SQL Server</p>
+                </div>
+                <div class="col">
+                  <i class="fas fa-tools" style="font-size: 1.75rem;"></i>
+                  <p class="mb-0">ServiceNow</p>
+                </div>
+                <div class="col">
+                  <i class="fa-solid fa-terminal" style="font-size: 1.75rem;"></i>
+                  <p class="mb-0">PowerShell</p>
+                </div>
+              </div>
+              <ul class="list-unstyled">
+                <li><i class="fas fa-cogs text-success"></i> Improved requirements accuracy by 35%.</li>
+                <li><i class="fas fa-users text-success"></i> Enhanced rollout speed by 35%, supporting 150+ employees.</li>
+                <li><i class="fas fa-chart-pie text-success"></i> Ensured 99% uptime with ITIL-driven incident management.</li>
+              </ul>
+              <button class="btn btn-sm btn-outline-success" data-bs-toggle="collapse" data-bs-target="#merck-details">
+                View Details <i class="fas fa-chevron-down"></i>
+              </button>
+              <div id="merck-details" class="collapse mt-3">
+                <ul>
+                  <li>Participated in software development using .NET and contributed to Computer System Validation, aiding 50 developers, enhancing requirements accuracy by 35%, and reducing development cycle time by 20%.</li>
+                  <li>Provided technical support and contributed to system implementations benefiting 150 employees, increasing rollout speeds by 35% and reducing support tickets by 18%.</li>
+                  <li>Applied ITIL best practices and led incident management, ensuring 99% uptime through efficient troubleshooting and organizational change management with 50+ global team members.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- AOS JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <!-- Particle.js -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!-- Contact Section -->
+    <section id="contact" class="tabcontent" style="display: none;" data-aos="flip-up" data-aos-duration="1200">
+      <h2>Contact</h2>
+      <p><strong>Email:</strong> sen.ee@northeastern.edu</p>
+      <p><strong>Phone:</strong> +1-857-350-2897</p>
+      <p><strong>Location:</strong> Boston, MA</p>
+      <p>Feel free to reach out to me for project collaborations, freelance work, or just to say hi!</p>
+      <div class="d-flex gap-2 mt-3">
+        <a href="https://www.linkedin.com/in/eesita-sen-4a0a52169/" target="_blank" class="btn btn-outline-primary">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://github.com/Eesita" target="_blank" class="btn btn-outline-dark">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </div>
+    </section>
+  </main>
 
-    <script>
-        // Initialize AOS
-        AOS.init();
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <!-- Particle.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
-        function openTab(evt, tabName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("btn");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
+  <script>
+    // Initialize AOS
+    AOS.init();
+
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("btn");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+
+    // Initialize default tab
+    document.getElementById("defaultOpen").click();
+
+    async function sendMessage(event) {
+      event.preventDefault();
+      const userInput = document.getElementById('user-input').value;
+      if (!userInput) return;
+      const chatMessages = document.querySelector('.chat-messages');
+      chatMessages.innerHTML += `<p class="user">You: ${userInput}</p>`;
+      document.getElementById('user-input').value = '';
+      const response = await fetch('/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userInput }),
+      });
+      const data = await response.json();
+      chatMessages.innerHTML += `<p class="bot">Bot: ${data.message}</p>`;
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Particle.js effect for Hero Section
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 150, density: { enable: true, value_area: 800 } },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.3, random: true, anim: { enable: true, speed: 0.5, opacity_min: 0, sync: false } },
+        size: { value: 2, random: true, anim: { enable: true, speed: 3, size_min: 0.1, sync: false } },
+        line_linked: { enable: false },
+        move: {
+          enable: true,
+          speed: 1,
+          direction: "random",
+          random: true,
+          out_mode: "out",
+          attract: { enable: false }
         }
-
-        // Initialize default tab
-        document.getElementById("defaultOpen").click();
-
-        async function sendMessage(event) {
-            event.preventDefault();
-            const userInput = document.getElementById('user-input').value;
-            if (!userInput) return;
-
-            const chatMessages = document.querySelector('.chat-messages');
-            chatMessages.innerHTML += `<p class="user">You: ${userInput}</p>`;
-            document.getElementById('user-input').value = '';
-
-            const response = await fetch('/chat', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message: userInput }),
-            });
-
-            const data = await response.json();
-            chatMessages.innerHTML += `<p class="bot">Bot: ${data.message}</p>`;
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" }
+        },
+        modes: {
+          repulse: { distance: 200, duration: 0.4 },
+          push: { particles_nb: 4 }
         }
+      },
+      retina_detect: true
+    });
 
-        // Function to handle tab switching
-        function openTab(evt, tabName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("btn");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
+    function flipCard(button) {
+      let cardInner = button.closest('.card-flip').querySelector('.card-inner');
+      cardInner.classList.toggle('flipped');
+    }
+
+    // Handle anchor links in hidden tabs
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetID = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetID);
+        if (targetElement) {
+          const parentTab = targetElement.closest('.tabcontent');
+          if (parentTab && parentTab.style.display === 'none') {
+            openTab(
+              { currentTarget: document.querySelector(`button[onclick*="openTab(event, '${parentTab.id}')"]`) },
+              parentTab.id
+            );
+          }
+          targetElement.scrollIntoView({ behavior: 'smooth' });
         }
-
-        // Particle.js effect for Hero Section with night sky and stars
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 150, density: { enable: true, value_area: 800 } },
-                color: { value: "#ffffff" },
-                shape: { type: "circle" },
-                opacity: { value: 0.3, random: true, anim: { enable: true, speed: 0.5, opacity_min: 0, sync: false } },
-                size: { value: 2, random: true, anim: { enable: true, speed: 3, size_min: 0.1, sync: false } },
-                line_linked: { enable: false }, // No lines between particles
-                move: {
-                    enable: true,
-                    speed: 1,
-                    direction: "random",
-                    random: true,
-                    out_mode: "out",
-                    attract: { enable: false }
-                }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: { enable: true, mode: "repulse" },
-                    onclick: { enable: true, mode: "push" }
-                },
-                modes: {
-                    repulse: { distance: 200, duration: 0.4 },
-                    push: { particles_nb: 4 }
-                }
-            },
-            retina_detect: true
-        });
-
-
-    </script>
-
-    <script>
-        function flipCard(button) {
-            // The button is on the front or back. We need the closest .card-flip -> .card-inner:
-            let cardInner = button.closest('.card-flip').querySelector('.card-inner');
-
-            // Toggle the 'flipped' class
-            cardInner.classList.toggle('flipped');
-        }
-    </script>
-
-    <!-- New script to handle anchor links in hidden tabs -->
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                // Get the target element by its ID
-                const targetID = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetID);
-
-                if (targetElement) {
-                    // Find the closest parent tab (section with class "tabcontent")
-                    const parentTab = targetElement.closest('.tabcontent');
-                    if (parentTab && parentTab.style.display === 'none') {
-                        // Open the tab corresponding to the hidden parent tab by using its id.
-                        openTab(
-                            { currentTarget: document.querySelector(`button[onclick*="openTab(event, '${parentTab.id}')"]`) },
-                            parentTab.id
-                        );
-                    }
-                    // Scroll smoothly to the target element after switching the tab
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-    </script>
-
-
+      });
+    });
+  </script>
 </body>
 
 </html>
