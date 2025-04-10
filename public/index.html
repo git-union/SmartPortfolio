@@ -23,22 +23,24 @@
       color: white;
       overflow: hidden;
       background-color: #000;
+      padding-top: 0;
     }
 
-    #hero-content {
-      position: absolute;
-      z-index: 2;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
+    @media (max-width: 768px) {
+      #hero-content {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        padding: 20px;
+      }
     }
   </style>
 </head>
 
 <body>
   <!-- Hero Section with Particle.js -->
-  <header class="container-fluid py-5" id="hero">
+  <header class="container-fluid" id="hero">
     <!-- Particle.js background -->
     <div id="particles-js"></div>
 
@@ -50,7 +52,8 @@
             <img src="img/profile.png" alt="Eesita Sen" class="profile-img" style="max-width: 150px;" />
             <h1>Hi, I'm <span class="text-primary">Eesita Sen</span></h1>
             <p>
-              A passionate software developer with over 3 years of experience creating intuitive and scalable user-centric software solutions.
+              A passionate software developer with over 3 years of experience creating intuitive and scalable
+              user-centric software solutions.
             </p>
             <div class="mb-3">
               <span class="badge me-2"><i class="fas fa-user-check"></i> User-Centered Design</span>
@@ -58,7 +61,8 @@
               <span class="badge"><i class="fas fa-cloud"></i> Cloud-Native Development & DevOps</span>
               <span class="badge"><i class="fas fa-cloud"></i> Systems Design and Architecture</span>
             </div>
-            <a href="assets/resume.pdf" download="Eesita_Sen_Resume.pdf" class="btn btn-outline-light">Download Resume</a>
+            <a href="assets/resume.pdf" download="Eesita_Sen_Resume.pdf" class="btn btn-outline-light">Download
+              Resume</a>
           </div>
         </div>
 
@@ -84,36 +88,52 @@
   </header>
 
   <main class="container my-5" data-aos="fade-up" data-aos-duration="1300">
-    <!-- Navigation Tabs (Reordered: About, Education, Skills, Projects, Experience, Contact) -->
-    <div class="d-flex justify-content-center mb-4">
-      <button class="btn me-2" onclick="openTab(event, 'about')" id="defaultOpen">
+<!-- Wrapper that allows horizontal scroll but hides the scrollbar -->
+<!-- Outer wrapper that centers the row -->
+<div class="d-flex justify-content-center mb-4">
+  <!-- Inner wrapper that allows horizontal scrolling and hides scrollbar -->
+  <div class="horizontal-scroll">
+    <div class="d-flex flex-nowrap" style="gap: 0.5rem;">
+      <button class="btn flex-shrink-0" onclick="openTab(event, 'about')" id="defaultOpen">
         <i class="fas fa-info-circle"></i> About
       </button>
-      <button class="btn me-2" onclick="openTab(event, 'education')">
+      <button class="btn flex-shrink-0" onclick="openTab(event, 'education')">
         <i class="fas fa-graduation-cap"></i> Education
       </button>
-      <button class="btn me-2" onclick="openTab(event, 'skills')">
+      <button class="btn flex-shrink-0" onclick="openTab(event, 'skills')">
         <i class="fas fa-cogs"></i> Skills
       </button>
-      <button class="btn me-2" onclick="openTab(event, 'projects')">
+      <button class="btn flex-shrink-0" onclick="openTab(event, 'projects')">
         <i class="fas fa-laptop-code"></i> Projects
       </button>
-      <button class="btn me-2" onclick="openTab(event, 'experience')">
+      <button class="btn flex-shrink-0" onclick="openTab(event, 'experience')">
         <i class="fas fa-briefcase"></i> Professional Experience
       </button>
-      <button class="btn" onclick="openTab(event, 'contact')">
+      <button class="btn flex-shrink-0" onclick="openTab(event, 'contact')">
         <i class="fas fa-envelope"></i> Contact
       </button>
     </div>
+  </div>
+</div>
+
+
+
+    
 
     <!-- About Section -->
     <section id="about" class="tabcontent" data-aos="zoom-in" data-aos-duration="1000">
       <h2>About Me</h2>
       <p>
-        Welcome to my portfolio! I'm Eesita Sen—a product-focused developer and AI enthusiast passionate about translating ideas into impactful, user-friendly solutions. My journey began five years ago, and I’ve since worked on everything from user experience design and testing to AI-driven chatbots and automated cloud infrastructures. I believe in blending user-centered design with rigorous software development practices to ensure that every product not only works seamlessly but also resonates with its audience. My goal? To build digital products that delight users at every interaction—and to do it with empathy, creativity, and precision.
+        Welcome to my portfolio! I'm Eesita Sen—a product-focused developer and AI enthusiast passionate about
+        translating ideas into impactful, user-friendly solutions. My journey began five years ago, and I’ve since
+        worked on everything from user experience design and testing to AI-driven chatbots and automated cloud
+        infrastructures. I believe in blending user-centered design with rigorous software development practices to
+        ensure that every product not only works seamlessly but also resonates with its audience. My goal? To build
+        digital products that delight users at every interaction—and to do it with empathy, creativity, and precision.
       </p>
       <p>
-        In my spare time, I love exploring new culinary flavors, planning my next travel adventure, and indulging in sci-fi and lighthearted workplace & lifestyle dramedies.
+        In my spare time, I love exploring new culinary flavors, planning my next travel adventure, and indulging in
+        sci-fi and lighthearted workplace & lifestyle dramedies.
       </p>
     </section>
 
@@ -218,141 +238,179 @@
       </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="tabcontent" style="display: none;" data-aos="fade-up" data-aos-duration="1000">
-      <h2>Projects Overview</h2>
-      <p>Below is a quick snapshot of some key projects I've worked on. Click "View Details" or the GitHub link for more info.</p>
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        <!-- Project Card: AI-Based Portfolio Agent & Chatbot -->
-        <div class="col">
-          <div class="card-flip" id="ai-based-portfolio">
-            <div class="card-inner">
-              <!-- Front Side -->
-              <div class="card front shadow-sm">
-                <div class="card-body">
-                  <h5 class="card-title mb-3">AI-Based Portfolio Agent and Chatbot</h5>
-                  <div class="row text-center mb-3">
-                    <div class="col">
-                      <i class="fas fa-brain" style="font-size: 1.75rem;"></i>
-                      <p class="mb-0">AI</p>
-                    </div>
-                    <div class="col">
-                      <i class="fab fa-js" style="font-size: 1.75rem;"></i>
-                      <p class="mb-0">JavaScript</p>
-                    </div>
-                    <div class="col">
-                      <i class="fab fa-aws" style="font-size: 1.75rem;"></i>
-                      <p class="mb-0">AWS</p>
-                    </div>
-                  </div>
-                  <p class="card-text">
-                    Developed an AI-powered chatbot leveraging OpenAI's LLM and RAG framework to handle portfolio-related queries and automate tasks.
-                  </p>
-                  <p><strong>Key Metric:</strong> Reducing time-to-insight by <em>50%</em>.</p>
-                </div>
-                <div class="card-footer d-flex justify-content-between">
-                  <button class="btn btn-sm btn-primary" onclick="flipCard(this)">View Details</button>
-                  <a href="https://github.com/git-union/SmartPortfolio" target="_blank" class="btn btn-sm btn-outline-secondary">
-                    <i class="fab fa-github"></i> GitHub
-                  </a>
-                </div>
-              </div>
-              <!-- Back Side -->
-              <div class="card back shadow-lg">
-                <div class="card-body">
-                  <h5 class="card-title mb-3">AI-Based Portfolio Agent and Chatbot</h5>
-                  <p><strong>Duration:</strong> Jan 2025 – Feb 2025</p>
-                  <p><strong>Technologies:</strong> OpenAI LLM, RAG Framework, AWS, Node.js, JavaScript</p>
-                  <h6><strong>Overview:</strong></h6>
-                  <p>
-                    Developed an intelligent chatbot leveraging a Retrieval Augmented Generation (RAG) framework and OpenAI LLM to deliver real-time portfolio insights and responses, enhancing user engagement and information accuracy.
-                  </p>
-                  <h6><strong>Key Contributions:</strong></h6>
-                  <ul>
-                    <li><strong>AI Chatbot Development:</strong> Designed and implemented a RAG-based chatbot using OpenAI LLM and vector databases for dynamic, context-aware responses to portfolio-related queries.</li>
-                    <li><strong>Dynamic Data Extraction:</strong> Integrated web scraping tools (Cheerio, Axios) to automatically extract job descriptions and portfolio data, generating structured, AI-powered summaries.</li>
-                    <li><strong>Robust Deployment & Security:</strong> Achieved zero-downtime updates on an EC2 instance by implementing automated deployment workflows with GitHub Actions, managing DNS with Route 53, and securing HTTPS access via an AWS Load Balancer integrated with AWS Certificate Manager.</li>
-                  </ul>
-                  <h6><strong>Outcome:</strong></h6>
-                  <p>
-                    Delivered a responsive and secure AI-driven portfolio agent that streamlined information retrieval, maintained high availability, and provided real-time, data-rich insights to users.
-                  </p>
-                </div>
-                <div class="card-footer text-end">
-                  <button class="btn btn-sm btn-secondary" onclick="flipCard(this)">Back</button>
-                </div>
-              </div>
+<!-- Projects Section -->
+<section id="projects" class="tabcontent" style="display: none;" data-aos="fade-up" data-aos-duration="1000">
+  <h2>Projects Overview</h2>
+  <p>Below is a quick snapshot of some key projects I've worked on. Click "View Details" or the GitHub link for more info.</p>
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+    <!-- AI-Based Portfolio Agent & Chatbot -->
+    <div class="col">
+      <div class="card shadow-sm">
+        <!-- Card Body (Short Summary) -->
+        <div class="card-body">
+          <h5 class="card-title mb-3">AI-Based Portfolio Agent and Chatbot</h5>
+          <div class="row text-center mb-3">
+            <div class="col">
+              <i class="fas fa-brain" style="font-size: 1.75rem;"></i>
+              <p class="mb-0">AI</p>
+            </div>
+            <div class="col">
+              <i class="fab fa-js" style="font-size: 1.75rem;"></i>
+              <p class="mb-0">JavaScript</p>
+            </div>
+            <div class="col">
+              <i class="fab fa-aws" style="font-size: 1.75rem;"></i>
+              <p class="mb-0">AWS</p>
             </div>
           </div>
+          <p class="card-text">
+            Developed an AI-powered chatbot leveraging OpenAI's LLM and RAG framework to handle
+            portfolio-related queries and automate tasks.
+          </p>
+          <p><strong>Key Metric:</strong> Reducing time-to-insight by <em>50%</em>.</p>
         </div>
 
-        <!-- Project Card: AWS Infrastructure Automation -->
-        <div class="col">
-          <div class="card-flip" id="aws-infra">
-            <div class="card-inner">
-              <!-- Front Side -->
-              <div class="card front shadow-sm">
-                <div class="card-body">
-                  <h5 class="card-title mb-3">AWS Infrastructure Automation</h5>
-                  <div class="row text-center mb-3">
-                    <div class="col">
-                      <i class="fab fa-aws" style="font-size: 1.75rem;"></i>
-                      <p class="mb-0">AWS</p>
-                    </div>
-                    <div class="col">
-                      <i class="fas fa-code-branch" style="font-size: 1.75rem;"></i>
-                      <p class="mb-0">Terraform</p>
-                    </div>
-                    <div class="col">
-                      <i class="fab fa-github" style="font-size: 1.75rem;"></i>
-                      <p class="mb-0">GitHub</p>
-                    </div>
-                  </div>
-                  <p class="card-text">
-                    Automated infrastructure provisioning using Terraform, GitHub Actions, and Packer, integrating AWS services for scalable deployments.
-                  </p>
-                  <p><strong>Key Metric:</strong> Reduced deployment time by <em>40%</em>.</p>
-                </div>
-                <div class="card-footer d-flex justify-content-between">
-                  <button class="btn btn-sm btn-primary" onclick="flipCard(this)">View Details</button>
-                  <a href="https://github.com/NetworkStructures-CloudComputing-Eesita/nodejs-app-with-db-test" target="_blank" class="btn btn-sm btn-outline-secondary">
-                    <i class="fab fa-github"></i> GitHub
-                  </a>
-                </div>
-              </div>
-              <!-- Back Side -->
-              <div class="card back shadow-lg">
-                <div class="card-body">
-                  <h5 class="card-title mb-3">AWS Infrastructure Automation</h5>
-                  <p><strong>Duration:</strong> Sept 2024 – Nov 2024</p>
-                  <p><strong>Technologies:</strong> AWS, Terraform, Packer, GitHub Actions, Node.js, SQL</p>
-                  <h6><strong>Overview:</strong></h6>
-                  <p>
-                    Developed a fully automated AWS infrastructure solution that streamlined deployments, enhanced scalability, and ensured robust system performance.
-                  </p>
-                  <h6><strong>Key Contributions:</strong></h6>
-                  <ul>
-                    <li><strong>API & Service Integration:</strong> Developed RESTful APIs with Node.js, integrating AWS services such as SNS, S3, and RDS; implemented Lambda functions for real-time notifications.</li>
-                    <li><strong>Infrastructure Automation:</strong> Automated provisioning using Terraform, managing VPC, EC2, RDS, Auto Scaling Groups, ALB, and security groups.</li>
-                    <li><strong>CI/CD Pipeline Development:</strong> Built automated pipelines with GitHub Actions and created custom AMIs using Packer, resulting in faster and more reliable deployments.</li>
-                    <li><strong>Monitoring & Diagnostics:</strong> Enabled comprehensive monitoring with CloudWatch, implemented custom metrics via StatsD/Winston, and centralized logging to facilitate diagnostics.</li>
-                    <li><strong>Scalability & Reliability Enhancements:</strong> Leveraged Auto Scaling Groups, Load Balancers, and Route 53 for effective DNS management, ensuring seamless scaling under load.</li>
-                  </ul>
-                  <h6><strong>Outcome:</strong></h6>
-                  <p>
-                    Delivered a scalable, reliable, and fully automated AWS infrastructure that significantly reduced manual intervention, accelerated deployment cycles, and enhanced overall system performance.
-                  </p>
-                </div>
-                <div class="card-footer text-end">
-                  <button class="btn btn-sm btn-secondary" onclick="flipCard(this)">Back</button>
-                </div>
-              </div>
-            </div>
+        <!-- Footer with Collapse Trigger -->
+        <div class="card-footer d-flex justify-content-between">
+          <button class="btn btn-sm btn-primary" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#ai-based-portfolio-details" 
+                  aria-expanded="false" 
+                  aria-controls="ai-based-portfolio-details">
+            View Details
+          </button>
+          <a href="https://github.com/git-union/SmartPortfolio" 
+             target="_blank" 
+             class="btn btn-sm btn-outline-secondary">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+
+        <!-- Collapsible Section with Collapse Button -->
+        <div class="collapse" id="ai-based-portfolio-details">
+          <div class="card-body">
+            <h5 class="card-title mb-3">AI-Based Portfolio Agent and Chatbot</h5>
+            <p><strong>Duration:</strong> Jan 2025 – Feb 2025</p>
+            <p><strong>Technologies:</strong> OpenAI LLM, RAG Framework, AWS, Node.js, JavaScript</p>
+            <h6><strong>Overview:</strong></h6>
+            <p>
+              Developed an intelligent chatbot leveraging a Retrieval Augmented Generation (RAG) framework and
+              OpenAI LLM to deliver real-time portfolio insights and responses, enhancing user engagement and
+              information accuracy.
+            </p>
+            <h6><strong>Key Contributions:</strong></h6>
+            <ul>
+              <li><strong>AI Chatbot Development:</strong> Designed and implemented a RAG-based chatbot using OpenAI LLM and vector databases for dynamic, context-aware responses.</li>
+              <li><strong>Dynamic Data Extraction:</strong> Integrated web scraping tools (Cheerio, Axios) to automatically extract job descriptions and portfolio data, generating structured, AI-powered summaries.</li>
+              <li><strong>Robust Deployment & Security:</strong> Achieved zero-downtime updates on an EC2 instance by implementing automated deployment workflows with GitHub Actions, managing DNS with Route 53, and securing HTTPS via AWS Load Balancer + Certificate Manager.</li>
+            </ul>
+            <h6><strong>Outcome:</strong></h6>
+            <p>
+              Delivered a responsive and secure AI-driven portfolio agent that streamlined information retrieval,
+              maintained high availability, and provided real-time, data-rich insights to users.
+            </p>
+          </div>
+          <div class="card-footer text-end">
+            <button class="btn btn-sm btn-secondary" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#ai-based-portfolio-details" 
+                    aria-expanded="true" 
+                    aria-controls="ai-based-portfolio-details">
+              Collapse
+            </button>
           </div>
         </div>
-        <!-- Additional project cards can be added here -->
       </div>
-    </section>
+    </div>
+
+    <!-- AWS Infrastructure Automation -->
+    <div class="col">
+      <div class="card shadow-sm">
+        <!-- Card Body (Short Summary) -->
+        <div class="card-body">
+          <h5 class="card-title mb-3">AWS Infrastructure Automation</h5>
+          <div class="row text-center mb-3">
+            <div class="col">
+              <i class="fab fa-aws" style="font-size: 1.75rem;"></i>
+              <p class="mb-0">AWS</p>
+            </div>
+            <div class="col">
+              <i class="fas fa-code-branch" style="font-size: 1.75rem;"></i>
+              <p class="mb-0">Terraform</p>
+            </div>
+            <div class="col">
+              <i class="fab fa-github" style="font-size: 1.75rem;"></i>
+              <p class="mb-0">GitHub</p>
+            </div>
+          </div>
+          <p class="card-text">
+            Automated infrastructure provisioning using Terraform, GitHub Actions, and Packer, integrating AWS
+            services for scalable deployments.
+          </p>
+          <p><strong>Key Metric:</strong> Reduced deployment time by <em>40%</em>.</p>
+        </div>
+
+        <!-- Footer with Collapse Trigger -->
+        <div class="card-footer d-flex justify-content-between">
+          <button class="btn btn-sm btn-primary" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#aws-infra-details" 
+                  aria-expanded="false" 
+                  aria-controls="aws-infra-details">
+            View Details
+          </button>
+          <a href="https://github.com/NetworkStructures-CloudComputing-Eesita/nodejs-app-with-db-test"
+             target="_blank"
+             class="btn btn-sm btn-outline-secondary">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+
+        <!-- Collapsible Section with Collapse Button -->
+        <div class="collapse" id="aws-infra-details">
+          <div class="card-body">
+            <h5 class="card-title mb-3">AWS Infrastructure Automation</h5>
+            <p><strong>Duration:</strong> Sept 2024 – Nov 2024</p>
+            <p><strong>Technologies:</strong> AWS, Terraform, Packer, GitHub Actions, Node.js, SQL</p>
+            <h6><strong>Overview:</strong></h6>
+            <p>
+              Developed a fully automated AWS infrastructure solution that streamlined deployments, enhanced
+              scalability, and ensured robust system performance.
+            </p>
+            <h6><strong>Key Contributions:</strong></h6>
+            <ul>
+              <li><strong>API & Service Integration:</strong> Developed RESTful APIs with Node.js, integrating AWS services (SNS, S3, RDS) & implemented Lambda for real-time notifications.</li>
+              <li><strong>Infrastructure Automation:</strong> Automated provisioning using Terraform for VPC, EC2, RDS, Auto Scaling Groups, ALB, and security groups.</li>
+              <li><strong>CI/CD Pipeline Development:</strong> Built automated pipelines with GitHub Actions and Packer for custom AMIs, resulting in faster, more reliable deployments.</li>
+              <li><strong>Monitoring & Diagnostics:</strong> Enabled comprehensive monitoring with CloudWatch, custom metrics, and centralized logging for quick diagnostics.</li>
+              <li><strong>Scalability & Reliability:</strong> Leveraged Auto Scaling Groups, Load Balancers, and Route 53 for seamless scaling under load.</li>
+            </ul>
+            <h6><strong>Outcome:</strong></h6>
+            <p>
+              Delivered a scalable, reliable, and fully automated AWS infrastructure that significantly reduced
+              manual intervention, accelerated deployment cycles, and enhanced overall system performance.
+            </p>
+          </div>
+          <div class="card-footer text-end">
+            <button class="btn btn-sm btn-secondary" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#aws-infra-details" 
+                    aria-expanded="true" 
+                    aria-controls="aws-infra-details">
+              Collapse
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more projects here following the same pattern -->
+
+  </div>
+</section>
+
+
 
     <!-- Professional Experience Section -->
     <section id="experience" class="tabcontent" style="display: none;" data-aos="fade-up" data-aos-duration="1000">
@@ -387,21 +445,31 @@
                 </div>
               </div>
               <ul class="list-unstyled">
-                <li><i class="fas fa-check-circle text-primary"></i> Engineered core platform, boosting adoption by 50%.</li>
-                <li><i class="fas fa-sync-alt text-primary"></i> Automated product updates, reducing manual effort by 75%.</li>
-                <li><i class="fas fa-chart-line text-primary"></i> Improved monitoring efficiency by 40% via Slack alerts.</li>
+                <li><i class="fas fa-check-circle text-primary"></i> Engineered core platform, boosting adoption by 50%.
+                </li>
+                <li><i class="fas fa-sync-alt text-primary"></i> Automated product updates, reducing manual effort by
+                  75%.</li>
+                <li><i class="fas fa-chart-line text-primary"></i> Improved monitoring efficiency by 40% via Slack
+                  alerts.</li>
               </ul>
-              <button class="btn btn-sm btn-outline-primary" data-bs-toggle="collapse" data-bs-target="#borderfree-details">
+              <button class="btn btn-sm btn-outline-primary" data-bs-toggle="collapse"
+                data-bs-target="#borderfree-details">
                 View Details <i class="fas fa-chevron-down"></i>
               </button>
               <div id="borderfree-details" class="collapse mt-3">
                 <ul>
-                  <li>Led agile software development practices for a live shopping platform, integrating with over 50 online merchant stores using RESTful APIs.</li>
-                  <li>Engineered core functionalities for inventory management and synchronization of discounts and rewards, contributing to a 50% increase in platform adoption and a 70% rise in sales.</li>
-                  <li>Developed an automated system leveraging webhooks to streamline product updates and deletions, reducing manual intervention by 75% and ensuring data integrity with robust error-handling.</li>
-                  <li>Created an AWS Lambda function for automatic synchronization of OpenSearch documents upon S3 object uploads, reducing operational cycle times by 30%.</li>
-                  <li>Improved monitoring efficiency by 40% and enabled faster responses to critical events with real-time store sync alerts via Slack.</li>
-                  <li>Automated shop integration via schedulers, ensuring seamless product information synchronization, token updates, and user data processing.</li>
+                  <li>Led agile software development practices for a live shopping platform, integrating with over 50
+                    online merchant stores using RESTful APIs.</li>
+                  <li>Engineered core functionalities for inventory management and synchronization of discounts and
+                    rewards, contributing to a 50% increase in platform adoption and a 70% rise in sales.</li>
+                  <li>Developed an automated system leveraging webhooks to streamline product updates and deletions,
+                    reducing manual intervention by 75% and ensuring data integrity with robust error-handling.</li>
+                  <li>Created an AWS Lambda function for automatic synchronization of OpenSearch documents upon S3
+                    object uploads, reducing operational cycle times by 30%.</li>
+                  <li>Improved monitoring efficiency by 40% and enabled faster responses to critical events with
+                    real-time store sync alerts via Slack.</li>
+                  <li>Automated shop integration via schedulers, ensuring seamless product information synchronization,
+                    token updates, and user data processing.</li>
                 </ul>
               </div>
             </div>
@@ -436,17 +504,23 @@
               </div>
               <ul class="list-unstyled">
                 <li><i class="fas fa-cogs text-success"></i> Improved requirements accuracy by 35%.</li>
-                <li><i class="fas fa-users text-success"></i> Enhanced rollout speed by 35%, supporting 150+ employees.</li>
-                <li><i class="fas fa-chart-pie text-success"></i> Ensured 99% uptime with ITIL-driven incident management.</li>
+                <li><i class="fas fa-users text-success"></i> Enhanced rollout speed by 35%, supporting 150+ employees.
+                </li>
+                <li><i class="fas fa-chart-pie text-success"></i> Ensured 99% uptime with ITIL-driven incident
+                  management.</li>
               </ul>
               <button class="btn btn-sm btn-outline-success" data-bs-toggle="collapse" data-bs-target="#merck-details">
                 View Details <i class="fas fa-chevron-down"></i>
               </button>
               <div id="merck-details" class="collapse mt-3">
                 <ul>
-                  <li>Participated in software development using .NET and contributed to Computer System Validation, aiding 50 developers, enhancing requirements accuracy by 35%, and reducing development cycle time by 20%.</li>
-                  <li>Provided technical support and contributed to system implementations benefiting 150 employees, increasing rollout speeds by 35% and reducing support tickets by 18%.</li>
-                  <li>Applied ITIL best practices and led incident management, ensuring 99% uptime through efficient troubleshooting and organizational change management with 50+ global team members.</li>
+                  <li>Participated in software development using .NET and contributed to Computer System Validation,
+                    aiding 50 developers, enhancing requirements accuracy by 35%, and reducing development cycle time by
+                    20%.</li>
+                  <li>Provided technical support and contributed to system implementations benefiting 150 employees,
+                    increasing rollout speeds by 35% and reducing support tickets by 18%.</li>
+                  <li>Applied ITIL best practices and led incident management, ensuring 99% uptime through efficient
+                    troubleshooting and organizational change management with 50+ global team members.</li>
                 </ul>
               </div>
             </div>
@@ -479,6 +553,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <!-- Particle.js -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+
 
   <script>
     // Initialize AOS
@@ -549,11 +625,6 @@
       },
       retina_detect: true
     });
-
-    function flipCard(button) {
-      let cardInner = button.closest('.card-flip').querySelector('.card-inner');
-      cardInner.classList.toggle('flipped');
-    }
 
     // Handle anchor links in hidden tabs
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

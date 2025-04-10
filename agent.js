@@ -6,7 +6,7 @@ const cheerio = require("cheerio");
 require("dotenv").config();
 
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
