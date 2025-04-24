@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "@langchain/community": "^0.3.28",
+    "@pinecone-database/pinecone": "^5.1.1",
     "axios": "^1.7.9",
     "cheerio": "^1.0.0",
     "dotenv": "^16.4.7",
@@ -19,6 +20,7 @@
     "langchain": "^0.3.15",
     "openai": "^4.82.0",
     "path": "^0.12.7",
+    "pdfjs-dist": "^5.1.91",
     "regex": "^6.0.1"
   },
   "devDependencies": {

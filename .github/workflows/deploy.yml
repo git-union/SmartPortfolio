@@ -1,58 +1,40 @@
-name: Deploy to EC2
+name: Deploy Portfolio Website
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]  # Trigger on push to main branch
+  pull_request:
+    branches: [ "main" ]  # Trigger on PRs to main branch
+  workflow_dispatch:      # Allow manual trigger
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Set up SSH
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/ec2_key.pem
-        chmod 600 ~/.ssh/ec2_key.pem
-        ssh-keyscan -H ec2-54-209-31-27.compute-1.amazonaws.com >> ~/.ssh/known_hosts
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
-    - name: Deploy to EC2
-      run: |
-        ssh -i ~/.ssh/ec2_key.pem ec2-user@ec2-54-209-31-27.compute-1.amazonaws.com << 'EOF'
-          set -e  # Exit on error
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './public'  # Upload the public directory
 
-          # Navigate to home directory
-          cd ~
-
-          # Check if repository exists
-          if [ ! -d "my-node-app" ]; then
-            echo "Cloning repository..."
-            git clone https://github.com/git-union/SmartPortfolio.git my-node-app
-          fi
-
-          # Navigate to app directory
-          cd my-node-app
-
-          # Ensure latest code is pulled
-          echo "Fetching latest code..."
-          git reset --hard origin/main
-          git pull origin main
-
-          # Install dependencies
-          echo "Installing dependencies..."
-          npm install
-
-          # Stop the running app (if any)
-          echo "Stopping any existing process..."
-          pkill -f "node agent.js" || echo "No process was running."
-
-          # Start the app with the latest code
-          echo "Starting the application..."
-          nohup node agent.js > app.log 2>&1 &
-
-          echo "Deployment completed successfully!"
-        EOF
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

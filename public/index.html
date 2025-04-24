@@ -20,19 +20,114 @@
     /* Custom styles for hero section */
     #hero {
       position: relative;
-      color: white;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1a365d 0%, #2563eb 100%);
+      padding: 80px 0;
       overflow: hidden;
-      background-color: #000;
-      padding-top: 0;
+    }
+
+    #hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    #hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #ffffff;
+    }
+
+    #hero p {
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .hero-badge {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+    }
+
+    .hero-badge:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .hero-badge i {
+      color: #60a5fa;
+    }
+
+    .profile-container {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .download-resume {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .download-resume:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      color: #ffffff;
+      text-decoration: none;
     }
 
     @media (max-width: 768px) {
-      #hero-content {
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
-        padding: 20px;
+      #hero {
+        padding: 60px 0;
+      }
+
+      #hero h1 {
+        font-size: 2.5rem;
+      }
+
+      #hero p {
+        font-size: 1.1rem;
+      }
+
+      .profile-img {
+        width: 150px;
+        height: 150px;
       }
     }
   </style>
@@ -44,41 +139,53 @@
     <!-- Particle.js background -->
     <div id="particles-js"></div>
 
-    <div class="container" id="hero-content" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container" id="hero-content">
       <div class="row align-items-center">
         <!-- Left Half: Photo and Content -->
         <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right" data-aos-duration="1200">
-          <div class="text-center text-md-start">
-            <img src="img/profile.png" alt="Eesita Sen" class="profile-img" style="max-width: 150px;" />
-            <h1>Hi, I'm <span class="text-primary">Eesita Sen</span></h1>
+          <div class="text-md-start">
+            <div class="profile-container">
+              <img src="img/profile.png" alt="Eesita Sen" class="profile-img" />
+            </div>
+            <h1>Hi, I'm <span style="color: #60a5fa;">Eesita Sen</span></h1>
             <p>
               A passionate software developer with over 3 years of experience creating intuitive and scalable
               user-centric software solutions.
             </p>
-            <div class="mb-3">
-              <span class="badge me-2"><i class="fas fa-user-check"></i> User-Centered Design</span>
-              <span class="badge me-2"><i class="fas fa-brain"></i> Generative AI, ML, MLOps</span>
-              <span class="badge"><i class="fas fa-cloud"></i> Cloud-Native Development & DevOps</span>
-              <span class="badge"><i class="fas fa-cloud"></i> Systems Design and Architecture</span>
+            <div class="hero-badges-container">
+              <span class="hero-badge"><i class="fas fa-user-check"></i> User-Centered Design</span>
+              <span class="hero-badge"><i class="fas fa-brain"></i> Generative AI & ML</span>
+              <span class="hero-badge"><i class="fas fa-cloud"></i> Cloud-Native Development</span>
+              <span class="hero-badge"><i class="fas fa-layer-group"></i> Systems Architecture</span>
             </div>
-            <a href="assets/resume.pdf" download="Eesita_Sen_Resume.pdf" class="btn btn-outline-light">Download
-              Resume</a>
+            <a href="assets/resume.pdf" download="Eesita_Sen_Resume.pdf" class="download-resume">
+              <i class="fas fa-download"></i> Download Resume
+            </a>
           </div>
         </div>
 
         <!-- Right Half: Chatbox -->
         <div class="col-md-6" data-aos="fade-left" data-aos-duration="1500">
-          <div class="card">
-            <div class="card-header bg-primary text-white">
-              <h2 class="h5 mb-0">Chat with Me!</h2>
+          <div class="card chat-card">
+            <div class="card-header bg-primary text-white py-3">
+              <h2 class="h5 mb-0"><i class="fas fa-robot me-2"></i>E.V.A. (Eesita's Virtual Assistant)</h2>
             </div>
-            <div class="card-body">
-              <div class="chat-messages mb-3">
-                <p class="bot">Hi there! 👋 I'm Eesita's virtual assistant. How can I help you today?</p>
+            <div class="card-body bg-white">
+              <div class="chat-messages-container">
+                <div class="chat-messages mb-3">
+                  <p class="bot">
+                    <span class="bot-label">E.V.A.:</span>
+                    <span class="bot-message">Hi there! 👋 How can I help you today?</span>
+                  </p>
+                </div>
               </div>
-              <form class="chat-form d-flex" onsubmit="sendMessage(event)">
-                <input type="text" id="user-input" class="form-control me-2" placeholder="Ask me anything..." />
-                <button type="submit" class="btn"><i class="fas fa-paper-plane"></i></button>
+              <form class="chat-form" onsubmit="sendMessage(event)">
+                <div class="chat-input-container">
+                  <input type="text" id="user-input" placeholder="Ask me anything..." />
+                  <button type="submit" class="send-button">
+                    <i class="fas fa-paper-plane"></i>
+                  </button>
+                </div>
               </form>
             </div>
           </div>
@@ -125,7 +232,7 @@
       <h2>About Me</h2>
       <p>
         Welcome to my portfolio! I'm Eesita Sen—a product-focused developer and AI enthusiast passionate about
-        translating ideas into impactful, user-friendly solutions. My journey began five years ago, and I’ve since
+        translating ideas into impactful, user-friendly solutions. My journey began five years ago, and I've since
         worked on everything from user experience design and testing to AI-driven chatbots and automated cloud
         infrastructures. I believe in blending user-centered design with rigorous software development practices to
         ensure that every product not only works seamlessly but also resonates with its audience. My goal? To build
@@ -183,55 +290,181 @@
     <!-- Skills Section -->
     <section id="skills" class="tabcontent" style="display: none;" data-aos="fade-up" data-aos-duration="1000">
       <h2>Skills Overview</h2>
-      <p>Here’s a snapshot of my core competencies and the projects where I've applied them.</p>
+      <p>A comprehensive breakdown of my technical expertise and where I've applied them.</p>
+      
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        <!-- Software Development Card -->
+        <!-- AI & Machine Learning -->
         <div class="col">
           <div class="card h-100 shadow-sm">
             <div class="card-body">
-              <h5 class="card-title">Software Development</h5>
-              <p class="mt-3 mb-1">Golang</p>
-              <p class="mt-3 mb-1">Python</p>
-              <p class="mt-3 mb-1">JavaScript</p>
-              <p class="mt-3 mb-1">Java</p>
-              <p class="mt-3 mb-1">Node.js</p>
-              <p class="mt-3">
-                <strong>Used In:</strong>
-                <a href="#aws-infra">AWS Infrastructure Automation</a>,
-                <a href="#borderfree-tech">Borderfree Technologies Project</a>
-              </p>
+              <h5 class="card-title">AI & Machine Learning</h5>
+              <div class="skill-category">
+                <h6>Deep Learning</h6>
+                <ul class="skill-list">
+                  <li>Transformer Architecture</li>
+                  <li>Custom Tokenization</li>
+                  <li>Attention Mechanisms</li>
+                  <li>Neural Networks</li>
+                </ul>
+                <p class="mt-2">
+                  <strong>Used In:</strong>
+                  <a href="#wyckoff-ai-details">Wyckoff AI Assistant</a>
+                </p>
+              </div>
+              <div class="skill-category">
+                <h6>AI Integration</h6>
+                <ul class="skill-list">
+                  <li>OpenAI API</li>
+                  <li>LangChain</li>
+                  <li>TensorFlow</li>
+                  <li>PyTorch</li>
+                </ul>
+                <p class="mt-2">
+                  <strong>Used In:</strong>
+                  <a href="#wyckoff-ai-details">Wyckoff AI Assistant</a>,
+                  <a href="#marketing-campaign-details">Marketing Campaign System</a>
+                </p>
+              </div>
             </div>
           </div>
         </div>
-        <!-- DevOps & IaC Card -->
+
+        <!-- Cloud & Infrastructure -->
         <div class="col">
           <div class="card h-100 shadow-sm">
             <div class="card-body">
-              <h5 class="card-title">DevOps & Infrastructure-as-Code</h5>
-              <p class="mt-3 mb-1">AWS</p>
-              <p class="mt-3 mb-1">Terraform</p>
-              <p class="mt-3 mb-1">Packer</p>
-              <p class="mt-3 mb-1">GitHub Actions (CI/CD)</p>
-              <p class="mt-3">
-                <strong>Used In:</strong>
-                <a href="#aws-infra">AWS Infrastructure Automation</a>,
-                <a href="#borderfree-tech">Borderfree Technologies Project</a>
-              </p>
+              <h5 class="card-title">Cloud & Infrastructure</h5>
+              <div class="skill-category">
+                <h6>Infrastructure as Code</h6>
+                <ul class="skill-list">
+                  <li>Terraform</li>
+                  <li>CDK</li>
+                  <li>Packer</li>
+                  <li>Pulumi</li>
+                </ul>
+                <p class="mt-2">
+                  <strong>Used In:</strong>
+                  <a href="#aws-infra-details">AWS Infrastructure Automation</a>
+                </p>
+              </div>
+              <div class="skill-category">
+                <h6>AWS Services</h6>
+                <ul class="skill-list">
+                  <li>Lambda</li>
+                  <li>ECS/ECR</li>
+                  <li>API Gateway</li>
+                  <li>Route 53</li>
+                  <li>CloudWatch</li>
+                </ul>
+                <p class="mt-2">
+                  <strong>Used In:</strong>
+                  <a href="#aws-infra-details">AWS Infrastructure Automation</a>,
+                  <a href="#marketing-campaign-details">Marketing Campaign System</a>
+                </p>
+              </div>
             </div>
           </div>
         </div>
-        <!-- AI & Agent Integration Card -->
+
+        <!-- Data Processing & Analytics -->
         <div class="col">
           <div class="card h-100 shadow-sm">
             <div class="card-body">
-              <h5 class="card-title">AI & Agent Integration</h5>
-              <p class="mt-3 mb-1">OpenAI LLM</p>
-              <p class="mt-3 mb-1">LangChain</p>
-              <p class="mt-3 mb-1">Flask (AI Apps)</p>
-              <p class="mt-3">
-                <strong>Used In:</strong>
-                <a href="#ai-based-portfolio">AI-Based Portfolio Agent & Chatbot</a>
-              </p>
+              <h5 class="card-title">Data Processing & Analytics</h5>
+              <div class="skill-category">
+                <h6>Real-time Processing</h6>
+                <ul class="skill-list">
+                  <li>Kafka</li>
+                  <li>AWS SQS</li>
+                  <li>Event-driven Architecture</li>
+                </ul>
+                <p class="mt-2">
+                  <strong>Used In:</strong>
+                  <a href="#borderfree-tech">Borderfree Technologies</a>
+                </p>
+              </div>
+              <div class="skill-category">
+                <h6>Analytics & Search</h6>
+                <ul class="skill-list">
+                  <li>OpenSearch</li>
+                  <li>Geospatial Analysis</li>
+                  <li>NLTK</li>
+                  <li>Sentiment Analysis</li>
+                </ul>
+                <p class="mt-2">
+                  <strong>Used In:</strong>
+                  <a href="#marketing-campaign-details">Marketing Campaign System</a>,
+                  <a href="#borderfree-tech">Borderfree Technologies</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DevOps & Automation -->
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">DevOps & Automation</h5>
+              <div class="skill-category">
+                <h6>CI/CD & Monitoring</h6>
+                <ul class="skill-list">
+                  <li>GitHub Actions</li>
+                  <li>StatsD</li>
+                  <li>Winston</li>
+                </ul>
+                <p class="mt-2">
+                  <strong>Used In:</strong>
+                  <a href="#aws-infra-details">AWS Infrastructure Automation</a>
+                </p>
+              </div>
+              <div class="skill-category">
+                <h6>Containerization</h6>
+                <ul class="skill-list">
+                  <li>Docker</li>
+                  <li>Kubernetes</li>
+                  <li>AWS ECS</li>
+                </ul>
+                <p class="mt-2">
+                  <strong>Used In:</strong>
+                  <a href="#marketing-campaign-details">Marketing Campaign System</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Integration & APIs -->
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Integration & APIs</h5>
+              <div class="skill-category">
+                <h6>API Development</h6>
+                <ul class="skill-list">
+                  <li>RESTful APIs</li>
+                  <li>GraphQL</li>
+                  <li>OAuth Integration</li>
+                  <li>API Throttling</li>
+                </ul>
+                <p class="mt-2">
+                  <strong>Used In:</strong>
+                  <a href="#borderfree-tech">Borderfree Technologies</a>,
+                  <a href="#aws-infra-details">AWS Infrastructure Automation</a>
+                </p>
+              </div>
+              <div class="skill-category">
+                <h6>E-commerce Integration</h6>
+                <ul class="skill-list">
+                  <li>Shopify API</li>
+                  <li>Magento Integration</li>
+                  <li>Webhook Management</li>
+                </ul>
+                <p class="mt-2">
+                  <strong>Used In:</strong>
+                  <a href="#borderfree-tech">Borderfree Technologies</a>
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -268,7 +501,7 @@
             Developed an AI-powered chatbot leveraging OpenAI's LLM and RAG framework to handle
             portfolio-related queries and automate tasks.
           </p>
-          <p><strong>Key Metric:</strong> Reducing time-to-insight by <em>50%</em>.</p>
+          <p><strong>Key Metric:</strong> Reducing time-to-insight by <em>30%</em>.</p>
         </div>
 
         <!-- Footer with Collapse Trigger -->
@@ -348,7 +581,7 @@
             Automated infrastructure provisioning using Terraform, GitHub Actions, and Packer, integrating AWS
             services for scalable deployments.
           </p>
-          <p><strong>Key Metric:</strong> Reduced deployment time by <em>40%</em>.</p>
+          <p><strong>Key Metric:</strong> Reduced deployment time by <em>50%</em>.</p>
         </div>
 
         <!-- Footer with Collapse Trigger -->
@@ -405,6 +638,156 @@
       </div>
     </div>
 
+    <!-- Wyckoff AI Assistant -->
+    <div class="col">
+      <div class="card shadow-sm">
+        <!-- Card Body (Short Summary) -->
+        <div class="card-body">
+          <h5 class="card-title mb-3">Wyckoff AI Assistant</h5>
+          <div class="row text-center mb-3">
+            <div class="col">
+              <i class="fas fa-brain" style="font-size: 1.75rem;"></i>
+              <p class="mb-0">AI</p>
+            </div>
+            <div class="col">
+              <i class="fab fa-python" style="font-size: 1.75rem;"></i>
+              <p class="mb-0">Python</p>
+            </div>
+            <div class="col">
+              <i class="fas fa-flask" style="font-size: 1.75rem;"></i>
+              <p class="mb-0">Flask</p>
+            </div>
+          </div>
+          <p class="card-text">
+            Engineered a transformer-based AI chatbot using PyTorch and Flask, integrating attention mechanisms and tokenization.
+          </p>
+          <p><strong>Key Metric:</strong> 85% accuracy with sub-second latency.</p>
+        </div>
+
+        <!-- Footer with Collapse Trigger -->
+        <div class="card-footer d-flex justify-content-between">
+          <button class="btn btn-sm btn-primary" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#wyckoff-ai-details" 
+                  aria-expanded="false" 
+                  aria-controls="wyckoff-ai-details">
+            View Details
+          </button>
+          <a href="https://github.com/Eesita/Wyckoff-AI-Assistant" 
+             target="_blank" 
+             class="btn btn-sm btn-outline-secondary">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+
+        <!-- Collapsible Section with Collapse Button -->
+        <div class="collapse" id="wyckoff-ai-details">
+          <div class="card-body">
+            <h5 class="card-title mb-3">Wyckoff AI Assistant</h5>
+            <p><strong>Duration:</strong> Jan 2025 – Mar 2025</p>
+            <p><strong>Technologies:</strong> PyTorch, Flask, Python, REST API</p>
+            <h6><strong>Overview:</strong></h6>
+            <p>
+              Engineered a transformer-based AI chatbot using PyTorch and Flask, integrating attention mechanisms, tokenization, and REST API architecture to process 1000+ Wyckoff trading concepts with 85% accuracy and sub-second latency.
+            </p>
+            <h6><strong>Key Contributions:</strong></h6>
+            <ul>
+              <li><strong>AI Model Development:</strong> Implemented intelligent error handling and fallback response logic in Python, reducing failures by 95% through custom tokenization of 8000+ trading-specific terms.</li>
+              <li><strong>Dynamic Model Handling:</strong> Developed robust real-time query resolution system with dynamic model handling for improved accuracy and performance.</li>
+            </ul>
+            <h6><strong>Outcome:</strong></h6>
+            <p>
+              Delivered a high-performance AI assistant capable of processing complex trading concepts with high accuracy and minimal latency.
+            </p>
+          </div>
+          <div class="card-footer text-end">
+            <button class="btn btn-sm btn-secondary" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#wyckoff-ai-details" 
+                    aria-expanded="true" 
+                    aria-controls="wyckoff-ai-details">
+              Collapse
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Marketing Campaign Recommendation System -->
+    <div class="col">
+      <div class="card shadow-sm">
+        <!-- Card Body (Short Summary) -->
+        <div class="card-body">
+          <h5 class="card-title mb-3">Marketing Campaign Recommendation System</h5>
+          <div class="row text-center mb-3">
+            <div class="col">
+              <i class="fas fa-cloud" style="font-size: 1.75rem;"></i>
+              <p class="mb-0">Cloud</p>
+            </div>
+            <div class="col">
+              <i class="fab fa-python" style="font-size: 1.75rem;"></i>
+              <p class="mb-0">Python</p>
+            </div>
+            <div class="col">
+              <i class="fab fa-aws" style="font-size: 1.75rem;"></i>
+              <p class="mb-0">AWS</p>
+            </div>
+          </div>
+          <p class="card-text">
+            Engineered a cloud-native microservice for marketing campaign recommendations using Flask and AWS.
+          </p>
+          <p><strong>Key Metric:</strong> Hyper-personalized insights generation.</p>
+        </div>
+
+        <!-- Footer with Collapse Trigger -->
+        <div class="card-footer d-flex justify-content-between">
+          <button class="btn btn-sm btn-primary" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#marketing-campaign-details" 
+                  aria-expanded="false" 
+                  aria-controls="marketing-campaign-details">
+            View Details
+          </button>
+          <a href="https://github.com/git-union/marketing-campaign-recommendation" 
+             target="_blank" 
+             class="btn btn-sm btn-outline-secondary">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+
+        <!-- Collapsible Section with Collapse Button -->
+        <div class="collapse" id="marketing-campaign-details">
+          <div class="card-body">
+            <h5 class="card-title mb-3">Marketing Campaign Recommendation System</h5>
+            <p><strong>Duration:</strong> Mar 2025 – Mar 2025</p>
+            <p><strong>Technologies:</strong> Flask, AWS ECS, Docker, NLTK, Geospatial Analysis</p>
+            <h6><strong>Overview:</strong></h6>
+            <p>
+              Engineered a cloud-native microservice for marketing campaign recommendations using Flask, integrating geospatial analysis, NLTK-based sentiment analysis, and weather data to generate hyper-personalized insights.
+            </p>
+            <h6><strong>Key Contributions:</strong></h6>
+            <ul>
+              <li><strong>Feature Extraction Pipeline:</strong> Built a comprehensive pipeline with store metrics, competitor analysis, and spatial density scoring.</li>
+              <li><strong>Cloud Deployment:</strong> Containerized with Docker and deployed to AWS ECS via ECR and ALB with HTTPS support.</li>
+            </ul>
+            <h6><strong>Outcome:</strong></h6>
+            <p>
+              Delivered a scalable and secure cloud-native solution that provides data-driven marketing insights with high accuracy and performance.
+            </p>
+          </div>
+          <div class="card-footer text-end">
+            <button class="btn btn-sm btn-secondary" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#marketing-campaign-details" 
+                    aria-expanded="true" 
+                    aria-controls="marketing-campaign-details">
+              Collapse
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Add more projects here following the same pattern -->
 
   </div>
@@ -419,14 +802,14 @@
       <div class="row row-cols-1 row-cols-md-2 g-4">
         <!-- Borderfree Technologies Experience -->
         <div class="col" id="borderfree-tech">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body">
+          <div class="experience-card">
+            <div class="card-content">
               <h5 class="card-title">
                 <i class="fas fa-laptop-code me-2"></i> Software Engineer - Borderfree Technologies
               </h5>
               <p><strong>Duration:</strong> Oct 2020 – Oct 2021 | Bangalore, India</p>
               <p><strong>Tech Stack:</strong> AWS (IAM, EC2, Lambda, S3, SQS), Golang, Elasticsearch, DynamoDB</p>
-              <div class="row text-center mb-3">
+              <div class="tech-icons row text-center mb-3">
                 <div class="col">
                   <i class="fab fa-aws" style="font-size: 1.75rem;"></i>
                   <p class="mb-0">AWS</p>
@@ -444,47 +827,29 @@
                   <p class="mb-0">DynamoDB</p>
                 </div>
               </div>
-              <ul class="list-unstyled">
-                <li><i class="fas fa-check-circle text-primary"></i> Engineered core platform, boosting adoption by 50%.
-                </li>
-                <li><i class="fas fa-sync-alt text-primary"></i> Automated product updates, reducing manual effort by
-                  75%.</li>
-                <li><i class="fas fa-chart-line text-primary"></i> Improved monitoring efficiency by 40% via Slack
-                  alerts.</li>
+              <ul class="list-unstyled bullet-points">
+                <li><i class="fas fa-check-circle text-primary"></i> Engineered core platform, boosting adoption by 50%.</li>
+                <li><i class="fas fa-sync-alt text-primary"></i> Automated product updates, reducing manual effort by 75%.</li>
+                <li><i class="fas fa-chart-line text-primary"></i> Improved monitoring efficiency by 40% via Slack alerts.</li>
               </ul>
-              <button class="btn btn-sm btn-outline-primary" data-bs-toggle="collapse"
-                data-bs-target="#borderfree-details">
+            </div>
+            <div class="button-container">
+              <button class="view-details-btn" data-bs-toggle="collapse" data-bs-target="#borderfree-details">
                 View Details <i class="fas fa-chevron-down"></i>
               </button>
-              <div id="borderfree-details" class="collapse mt-3">
-                <ul>
-                  <li>Led agile software development practices for a live shopping platform, integrating with over 50
-                    online merchant stores using RESTful APIs.</li>
-                  <li>Engineered core functionalities for inventory management and synchronization of discounts and
-                    rewards, contributing to a 50% increase in platform adoption and a 70% rise in sales.</li>
-                  <li>Developed an automated system leveraging webhooks to streamline product updates and deletions,
-                    reducing manual intervention by 75% and ensuring data integrity with robust error-handling.</li>
-                  <li>Created an AWS Lambda function for automatic synchronization of OpenSearch documents upon S3
-                    object uploads, reducing operational cycle times by 30%.</li>
-                  <li>Improved monitoring efficiency by 40% and enabled faster responses to critical events with
-                    real-time store sync alerts via Slack.</li>
-                  <li>Automated shop integration via schedulers, ensuring seamless product information synchronization,
-                    token updates, and user data processing.</li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>
         <!-- Merck Experience -->
         <div class="col">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body">
+          <div class="experience-card">
+            <div class="card-content">
               <h5 class="card-title">
                 <i class="fas fa-database me-2"></i> Software Engineer - Merck
               </h5>
               <p><strong>Duration:</strong> Oct 2020 – Oct 2021 | Bangalore, India</p>
               <p><strong>Tech Stack:</strong> .NET, Microsoft SQL Server, ServiceNow, PowerShell</p>
-              <div class="row text-center mb-3">
+              <div class="tech-icons row text-center mb-3">
                 <div class="col">
                   <i class="fab fa-microsoft" style="font-size: 1.75rem;"></i>
                   <p class="mb-0">.NET</p>
@@ -502,27 +867,16 @@
                   <p class="mb-0">PowerShell</p>
                 </div>
               </div>
-              <ul class="list-unstyled">
-                <li><i class="fas fa-cogs text-success"></i> Improved requirements accuracy by 35%.</li>
-                <li><i class="fas fa-users text-success"></i> Enhanced rollout speed by 35%, supporting 150+ employees.
-                </li>
-                <li><i class="fas fa-chart-pie text-success"></i> Ensured 99% uptime with ITIL-driven incident
-                  management.</li>
+              <ul class="list-unstyled bullet-points">
+                <li><i class="fas fa-cogs text-primary"></i> Improved requirements accuracy by 35%.</li>
+                <li><i class="fas fa-users text-primary"></i> Enhanced rollout speed by 35%, supporting 150+ employees.</li>
+                <li><i class="fas fa-chart-pie text-primary"></i> Ensured 99% uptime with ITIL-driven incident management.</li>
               </ul>
-              <button class="btn btn-sm btn-outline-success" data-bs-toggle="collapse" data-bs-target="#merck-details">
+            </div>
+            <div class="button-container">
+              <button class="view-details-btn" data-bs-toggle="collapse" data-bs-target="#merck-details">
                 View Details <i class="fas fa-chevron-down"></i>
               </button>
-              <div id="merck-details" class="collapse mt-3">
-                <ul>
-                  <li>Participated in software development using .NET and contributed to Computer System Validation,
-                    aiding 50 developers, enhancing requirements accuracy by 35%, and reducing development cycle time by
-                    20%.</li>
-                  <li>Provided technical support and contributed to system implementations benefiting 150 employees,
-                    increasing rollout speeds by 35% and reducing support tickets by 18%.</li>
-                  <li>Applied ITIL best practices and led incident management, ensuring 99% uptime through efficient
-                    troubleshooting and organizational change management with 50+ global team members.</li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>
@@ -582,7 +936,7 @@
       const userInput = document.getElementById('user-input').value;
       if (!userInput) return;
       const chatMessages = document.querySelector('.chat-messages');
-      chatMessages.innerHTML += `<p class="user">You: ${userInput}</p>`;
+      chatMessages.innerHTML += `<p class="user">${userInput}</p>`;
       document.getElementById('user-input').value = '';
       const response = await fetch('/chat', {
         method: 'POST',
@@ -590,37 +944,92 @@
         body: JSON.stringify({ message: userInput }),
       });
       const data = await response.json();
-      chatMessages.innerHTML += `<p class="bot">Bot: ${data.message}</p>`;
+      chatMessages.innerHTML += `<p class="bot"><span class="bot-label">E.V.A.:</span><span class="bot-message">${data.message}</span></p>`;
       chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
     // Particle.js effect for Hero Section
     particlesJS('particles-js', {
       particles: {
-        number: { value: 150, density: { enable: true, value_area: 800 } },
-        color: { value: "#ffffff" },
-        shape: { type: "circle" },
-        opacity: { value: 0.3, random: true, anim: { enable: true, speed: 0.5, opacity_min: 0, sync: false } },
-        size: { value: 2, random: true, anim: { enable: true, speed: 3, size_min: 0.1, sync: false } },
-        line_linked: { enable: false },
+        number: {
+          value: 120,
+          density: {
+            enable: true,
+            value_area: 800
+          }
+        },
+        color: {
+          value: ["#ffffff", "#60a5fa", "#93c5fd"]
+        },
+        shape: {
+          type: "circle"
+        },
+        opacity: {
+          value: 0.6,
+          random: true,
+          anim: {
+            enable: true,
+            speed: 1,
+            opacity_min: 0.1,
+            sync: false
+          }
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: {
+            enable: true,
+            speed: 2,
+            size_min: 0.1,
+            sync: false
+          }
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#ffffff",
+          opacity: 0.2,
+          width: 1
+        },
         move: {
           enable: true,
-          speed: 1,
-          direction: "random",
+          speed: 3,
+          direction: "none",
           random: true,
+          straight: false,
           out_mode: "out",
-          attract: { enable: false }
+          bounce: false,
+          attract: {
+            enable: true,
+            rotateX: 600,
+            rotateY: 1200
+          }
         }
       },
       interactivity: {
         detect_on: "canvas",
         events: {
-          onhover: { enable: true, mode: "repulse" },
-          onclick: { enable: true, mode: "push" }
+          onhover: {
+            enable: true,
+            mode: "bubble"
+          },
+          onclick: {
+            enable: true,
+            mode: "push"
+          },
+          resize: true
         },
         modes: {
-          repulse: { distance: 200, duration: 0.4 },
-          push: { particles_nb: 4 }
+          bubble: {
+            distance: 200,
+            size: 6,
+            duration: 0.2,
+            opacity: 0.8,
+            speed: 3
+          },
+          push: {
+            particles_nb: 4
+          }
         }
       },
       retina_detect: true
