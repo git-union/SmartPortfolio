@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "netlify dev"
+    "dev": "netlify dev",
+    "build": "echo 'No build step required for static site'"
   },
   "keywords": [],
   "author": "Your Name",

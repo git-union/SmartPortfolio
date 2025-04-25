@@ -1,4 +1,4 @@
-name: Deploy Portfolio Website
+name: Deploy to Netlify
 
 on:
   push:
@@ -7,19 +7,6 @@ on:
     branches: [ "main" ]  # Trigger on PRs to main branch
   workflow_dispatch:      # Allow manual trigger
 
-env:
-  AWS_REGION: us-east-1
-  TERRAFORM_VERSION: 1.5.0
-
-permissions:
-  contents: read
-  id-token: write
-
-# Allow only one concurrent deployment
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -27,45 +14,25 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
-          aws-region: ${{ env.AWS_REGION }}
+          node-version: '18'
+          cache: 'npm'
 
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+      - name: Deploy to Netlify
+        uses: netlify/actions/cli@master
         with:
-          terraform_version: ${{ env.TERRAFORM_VERSION }}
-
-      - name: Terraform Init
-        working-directory: ./infrastructure
-        run: terraform init
+          args: deploy --dir=public --prod
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
-      - name: Terraform Plan
-        working-directory: ./infrastructure
-        run: terraform plan -var="domain_name=${{ secrets.DOMAIN_NAME }}"
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
-      - name: Terraform Apply
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        working-directory: ./infrastructure
-        run: terraform apply -auto-approve -var="domain_name=${{ secrets.DOMAIN_NAME }}"
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
-      - name: Upload to S3
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: |
-          aws s3 sync ./public s3://${{ secrets.DOMAIN_NAME }} --delete
-
-      - name: Invalidate CloudFront Cache
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: |
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
